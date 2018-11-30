@@ -20,6 +20,7 @@ def test_ll_instance_none_value(empty_ll):
     assert empty_ll.head is None
 
 
-
+def test_ll_str_method(empty_ll):
+    assert str(empty_ll) == f'Linked List: Head val - { empty_ll.head }'
 
 
