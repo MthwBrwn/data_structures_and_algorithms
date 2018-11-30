@@ -6,5 +6,9 @@ class Node (object):
         self._next = next
 
     def __str__(self):
-        output = f'{ self.val }'
+        output = f'{self.val}'
+        return output
+
+    def __repr__(self):
+        output = f'{self.val}, {_next}'
         return output
