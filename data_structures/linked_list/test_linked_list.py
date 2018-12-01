@@ -72,8 +72,11 @@ def testrandom_ll(random_ll):
     assert len(random_ll) == 100
 
 
-def test_includes(small_linklist):
+def test_includes_is_True(small_linklist):
     """ """
-    actual = 3
-    # assertFalse (small_linklist._includes() = actual)
-    assert small_linklist._includes(4) == True
+    assert small_linklist._includes(4) is True
+
+
+def test_includes_is_False(small_linklist):
+    """ """
+    assert small_linklist._includes(3) is False

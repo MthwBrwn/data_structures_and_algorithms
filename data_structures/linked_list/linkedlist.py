@@ -20,29 +20,35 @@ class LinkedList(object):
             self.insert(val)
 
     def __str__(self):
+        """
+        """
         output = f'Linked List: Head val - { self.head }'
         return output
 
     def __repr__(self):
+        """
+        """
         output = f'<LinkedList: head - { self.head } size - {self._size}>'
         return output
 
     def __len__(self):
+        """
+        """
         return self._size
 
     def insert(self, value):
-        """  """
+        """
+        """
         node = Node(value)
         node._next = self.head
         self.head = Node(value, self.head)
         self._size += 1
 
     def _includes(self, value):
-        """ TODO   Define a method called includes which
-        takes any value as an argument and returns True or False
-        depending on whether that value exists as a Node value within the list.
-    """
-        # self._size = _size
+        """
+        """
+        # need a method to determine if a value is ANYWHERE
+        # in the linklist
         if self._size == value:
             return True
         else:
