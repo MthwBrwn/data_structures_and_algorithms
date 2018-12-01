@@ -3,7 +3,6 @@
 from .node import Node
 
 
-
 class LinkedList(object):
     """ This class should be aware of the len of the list,
     which represents the count of Nodes in the list at any time  """
@@ -24,7 +23,21 @@ class LinkedList(object):
         output = f'Linked List: Head val - { self.head }'
         return output
 
-
     def __repr__(self):
         output = f'<LinkedList: head - { self.head } size - {self._size}>'
         return output
+
+
+    def __len__(self):
+        return self._size
+
+    def insert(self, value):
+        """  """
+        node = Node(value)
+        node._next = self.head
+        self.head = Node(value, self.head)
+        self._size += 1
+
+    # def includes(self)
+        """ TODO
+        """
