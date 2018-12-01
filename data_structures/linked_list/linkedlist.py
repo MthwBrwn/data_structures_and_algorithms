@@ -27,7 +27,6 @@ class LinkedList(object):
         output = f'<LinkedList: head - { self.head } size - {self._size}>'
         return output
 
-
     def __len__(self):
         return self._size
 
@@ -38,6 +37,13 @@ class LinkedList(object):
         self.head = Node(value, self.head)
         self._size += 1
 
-    # def includes(self)
-        """ TODO
-        """
+    def _includes(self, value):
+        """ TODO   Define a method called includes which
+        takes any value as an argument and returns True or False
+        depending on whether that value exists as a Node value within the list.
+    """
+        # self._size = _size
+        if self._size == value:
+            return True
+        else:
+            return False
