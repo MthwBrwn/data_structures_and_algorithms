@@ -1,5 +1,3 @@
-""" DOCSTRING
-"""
 from .node import Node
 
 
@@ -20,36 +18,44 @@ class LinkedList(object):
             self.insert(val)
 
     def __str__(self):
-        """
+        """this returns user level information when called
         """
         output = f'Linked List: Head val - { self.head }'
         return output
 
     def __repr__(self):
-        """
+        """this will provide technical information when called
         """
         output = f'<LinkedList: head - { self.head } size - {self._size}>'
         return output
 
     def __len__(self):
-        """
+        """This returns the list length
         """
         return self._size
 
     def insert(self, value):
+        """This function takes an argument when the method is called
+        and inserts the value into the list
         """
-        """
-        node = Node(value)
-        node._next = self.head
+        # node = Node(value)
+        # node._next = self.head
+        # self.head = node
         self.head = Node(value, self.head)
         self._size += 1
 
-    def _includes(self, value):
+    def _includes(self, num):
+        """In this method the check variable is the node set by head and in=s the iterator
+       check passes values down the linked list and stops when
+        None which would indicate the tail of the list
         """
-        """
-        # need a method to determine if a value is ANYWHERE
-        # in the linklist
-        if self._size == value:
-            return True
-        else:
-            return False
+
+        check = self.head
+        while check and check._next is not None:
+            if check.val == num:
+                return True
+            check = check._next
+
+        return False
+
+
