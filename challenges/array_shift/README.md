@@ -10,3 +10,7 @@ Write a function called insertShiftArray which takes in an array and the value t
 in this challenge the Big O was not evaluated. As for the approach, my partner Raymond Ruazol and I both took turns on the white board - one would do the algorith and the other would pseudo-code. The coding was done independantly
 
 ## Solution
+
+
+![](../../assets/01-array_shift1.jpg)
+
