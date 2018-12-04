@@ -54,7 +54,8 @@ class LinkedList(object):
         while current:
             if current.val == val:
                 return True
-            current = current._next
+            else:
+                current = current._next
         return False
 
     def append(self, val):
@@ -81,3 +82,8 @@ class LinkedList(object):
             new_node._next = current
         self.head = new_node
 
+
+if __name__ == "__main__":
+    run(
+        insert()
+    )

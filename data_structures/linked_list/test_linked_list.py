@@ -63,8 +63,8 @@ def test_size_of_small_linklist(small_linklist):
 def test_insert_new_node_into_empty_list(empty_ll):
     """ this checks that empty linked lists have a head of None"""
     assert empty_ll.head is None
-    # empty_ll.insert(1)
-    # assert empty_ll.head.val == 1
+    empty_ll.insert(1)
+    assert empty_ll.head.val == 1
 
 
 def testrandom_ll(random_ll):
