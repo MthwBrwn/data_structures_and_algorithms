@@ -1,5 +1,4 @@
 from .linkedlist import LinkedList
-
 import pytest
 
 # fixtures
@@ -64,8 +63,8 @@ def test_size_of_small_linklist(small_linklist):
 def test_insert_new_node_into_empty_list(empty_ll):
     """ this checks that empty linked lists have a head of None"""
     assert empty_ll.head is None
-    empty_ll.insert(1)
-    assert empty_ll.head.val == 1
+    # empty_ll.insert(1)
+    # assert empty_ll.head.val == 1
 
 
 def testrandom_ll(random_ll):
@@ -73,20 +72,34 @@ def testrandom_ll(random_ll):
     assert len(random_ll) == 100
 
 
-def test_includes_is_True(small_linklist):
-    """ this tests the condition of including 3 which is known
-    in our small list"""
-    assert small_linklist._includes(1) is True
+# def test_includes_is_True(small_linklist):
+#     """ this tests the condition of including 3 which is known
+#     in our small list"""
+#     assert small_linklist.includes(3) == True
 
 
-def test_includes_is_False(small_linklist):
-    """ This tests false know to be false in the linked list"""
-    assert small_linklist._includes(6) is False
+# def test_includes_is_False(small_linklist):
+#     """ This tests false know to be false in the linked list"""
+#     assert small_linklist.includes(6) == False
 
 
 def test_includes_None(empty_ll):
     """ This checks to see if a linked list with no iterable returns false"""
-    assert empty_ll._includes(None) is False
+    assert empty_ll.includes(None) is False
+
+
+def test_append_test_for_empty(empty_ll):
+    """ tests to see if node appended to empty"""
+    assert len(empty_ll) == 0
+    # empty_ll.append(1)
+    # assert len(empty_ll) == 1
+
+
+def test_append_test_for_small(small_linklist):
+    """ tests to see if node appended to small group"""
+    assert len(small_linklist) == 4
+    small_linklist.append(1)
+    assert len(small_linklist) == 5
 
 
 

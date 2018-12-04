@@ -34,28 +34,37 @@ class LinkedList(object):
         """
         return self._size
 
-    def insert(self, value):
+    def insert(self, val):
         """This function takes an argument when the method is called
         and inserts the value into the list
         """
-        # node = Node(value)
-        # node._next = self.head
-        # self.head = node
-        self.head = Node(value, self.head)
+        node = Node(val)
+        node._next = self.head
+        self.head = node
+        # self.head = Node(val, self.head)
         self._size += 1
 
-    def _includes(self, num):
+    def includes(self, val):
         """In this method the check variable is the node set by head and in=s the iterator
        check passes values down the linked list and stops when
         None which would indicate the tail of the list
         """
-
-        check = self.head
-        while check and check._next is not None:
-            if check.val == num:
+        current = self.head
+        while current:
+            if current.val == val:
                 return True
-            check = check._next
-
+            current = current._next
         return False
 
+    def append(self, val):
+        new_node = Node(val)
+        current = self.head
+        while current._next:
+            current = current._next
+        current._next = new_node
+        current._next._next = None
+        self._size += 1
+        return
 
+
+    # def insert_before(self, )
