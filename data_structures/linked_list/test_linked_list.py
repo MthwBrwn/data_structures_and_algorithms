@@ -63,8 +63,8 @@ def test_size_of_small_linklist(small_linklist):
 def test_insert_new_node_into_empty_list(empty_ll):
     """ this checks that empty linked lists have a head of None"""
     assert empty_ll.head is None
-    # empty_ll.insert(1)
-    # assert empty_ll.head.val == 1
+    empty_ll.insert(1)
+    assert empty_ll.head.val == 1
 
 
 def testrandom_ll(random_ll):
@@ -72,15 +72,15 @@ def testrandom_ll(random_ll):
     assert len(random_ll) == 100
 
 
-# def test_includes_is_True(small_linklist):
-#     """ this tests the condition of including 3 which is known
-#     in our small list"""
-#     assert small_linklist.includes(3) == True
+def test_includes_is_True(small_linklist):
+    """ this tests the condition of including 3 which is known
+    in our small list"""
+    assert small_linklist.includes(3) is True
 
 
-# def test_includes_is_False(small_linklist):
-#     """ This tests false know to be false in the linked list"""
-#     assert small_linklist.includes(6) == False
+def test_includes_is_False(small_linklist):
+    """ This tests false know to be false in the linked list"""
+    assert small_linklist.includes(6) is False
 
 
 def test_includes_None(empty_ll):
@@ -104,5 +104,5 @@ def test_append_test_for_small(small_linklist):
 
 def test_insert_before(small_linklist):
     assert len(small_linklist) == 4
-    # small_linklist.insert_before(3, 7)
-    # assert len(small_linklist) == 5
+    small_linklist.insert_before(3, 7)
+    assert len(small_linklist) == 5
