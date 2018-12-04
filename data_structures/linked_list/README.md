@@ -9,4 +9,4 @@ The challenge is to add three methods and have those methods pass at least three
 This was not evaluated for big O
 
 ## Solution
-![](../../data_structures_and_algorithms/assets/ll_insertions.jpg")
+![](../../assets/ll_insertions.jpg")
