@@ -91,8 +91,8 @@ def test_includes_None(empty_ll):
 def test_append_test_for_empty(empty_ll):
     """ tests to see if node appended to empty"""
     assert len(empty_ll) == 0
-    # empty_ll.append(1)
-    # assert len(empty_ll) == 1
+    empty_ll.append(1)
+    assert len(empty_ll) == 1
 
 
 def test_append_test_for_small(small_linklist):
@@ -102,4 +102,7 @@ def test_append_test_for_small(small_linklist):
     assert len(small_linklist) == 5
 
 
-
+def test_insert_before(small_linklist):
+    assert len(small_linklist) == 4
+    # small_linklist.insert_before(3, 7)
+    # assert len(small_linklist) == 5
