@@ -44,6 +44,7 @@ class LinkedList(object):
         # self.head = Node(val, self.head)
         self._size += 1
 
+
     def includes(self, val):
         """In this method the check variable is the node set by head and in=s the iterator
        check passes values down the linked list and stops when
@@ -57,7 +58,11 @@ class LinkedList(object):
         return False
 
     def append(self, val):
+        """ this is a method to add a node to the end of the linked list
+        """
         new_node = Node(val)
+        if self.head is None:
+            self.head = new_node
         current = self.head
         while current._next:
             current = current._next
@@ -67,4 +72,12 @@ class LinkedList(object):
         return
 
 
-    # def insert_before(self, )
+    def insert_before(self, find_val, new_val):
+        """ in this method the node with the find val is located
+        and then the new_val is appended in front of it"""
+        current = self.head
+        new_node = Node(new_val)
+        if current.val == find_val:
+            new_node._next = current
+        self.head = new_node
+
