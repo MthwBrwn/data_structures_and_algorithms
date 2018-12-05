@@ -83,7 +83,22 @@ class LinkedList(object):
         self.head = new_node
 
 
-if __name__ == "__main__":
-    run(
-        insert()
-    )
+    def _kth_from_end(self , k):
+        """This method uses a k value to establish a point k from the head
+        through traversing set to the variable outpoint. The head is set to another variable,
+        current. both current and outpoint traverse the list and when outpoint reaches None,
+        the current value will be returned """
+        if self.head is None and k=0:
+            return self.head.val
+        outpoint = self.head
+        current = self.head
+        count = 1
+        for i in range(k):
+            outpoint = outpoint._next
+            count +=1
+
+        while outpoint._next:
+              current = current._next
+              outpoint = outpoint._next
+        return current
+
