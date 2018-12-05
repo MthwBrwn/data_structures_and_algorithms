@@ -1,12 +1,14 @@
-# Linked List Insertions
 
-This lab expands the previous linked list challenge by adding an insertion method which places the node at the end of the link list
+# kth from the end of a Linked List
+This lab adds to the linked list object by introducing a method for find in the value of a node a variable k distance from the end.
 
 ## Challenge
-The challenge is to add three methods and have those methods pass at least three tests each
+create the method and establish tests at least three for each method.
 
 ## Approach & Efficiency
-This was not evaluated for big O
+As this is a traversal issue with a linked list, this is an O(n). 
+The solution was chosen as it seeks to limit the traversing needed for the solution.
 
 ## Solution
-![](../../assets/ll_insertions.jpg")
+../../assets/07-ll_kth_from_end.jpg
+
