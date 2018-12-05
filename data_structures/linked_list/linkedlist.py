@@ -44,7 +44,6 @@ class LinkedList(object):
         # self.head = Node(val, self.head)
         self._size += 1
 
-
     def includes(self, val):
         """In this method the check variable is the node set by head and in=s the iterator
        check passes values down the linked list and stops when
@@ -72,7 +71,6 @@ class LinkedList(object):
         self._size += 1
         return
 
-
     def insert_before(self, find_val, new_val):
         """ in this method the node with the find val is located
         and then the new_val is appended in front of it"""
@@ -82,23 +80,26 @@ class LinkedList(object):
             new_node._next = current
         self.head = new_node
 
-
-    def _kth_from_end(self , k):
+    def kth_from_end(self, k):
         """This method uses a k value to establish a point k from the head
         through traversing set to the variable outpoint. The head is set to another variable,
         current. both current and outpoint traverse the list and when outpoint reaches None,
         the current value will be returned """
-        if self.head is None and k=0:
-            return self.head.val
+        # edges : k < 0 or k is not int
+        # k is greater than linked list
+        # if k is not type(int) or k < 0:
+        #     return "Exception, your k is not a positive integer"
         outpoint = self.head
         current = self.head
-        count = 1
+
         for i in range(k):
             outpoint = outpoint._next
-            count +=1
+            if outpoint._next is None:
+                return "Exception, k is longer than list"
 
         while outpoint._next:
-              current = current._next
-              outpoint = outpoint._next
-        return current
+            current = current._next
+            outpoint = outpoint._next
+
+        return current.val
 

@@ -24,6 +24,18 @@ def small_linklist():
 
 
 @pytest.fixture
+def small_double_rev_linklist():
+    """this is a fixture for testing conditions when
+    the list is a four node list """
+    ll = LinkedList()
+    ll.insert(8)
+    ll.insert(6)
+    ll.insert(4)
+    ll.insert(2)
+    return ll
+
+
+@pytest.fixture
 def random_ll():
     """ this is a fixture for testing conditions when the list is empty"""
     from random import randint
@@ -102,7 +114,24 @@ def test_append_test_for_small(small_linklist):
     assert len(small_linklist) == 5
 
 
-def test_insert_before(small_linklist):
-    assert len(small_linklist) == 4
-    small_linklist.insert_before(3, 7)
-    assert len(small_linklist) == 5
+# def test_insert_before(small_linklist):
+#     assert len(small_linklist) == 4
+#     small_linklist.insert_before(3, 7)
+#     assert len(small_linklist) == 5
+
+
+def test_kth_from_end_k_is(small_linklist):
+    """ Test to determine if k of different figures gives us known value"""
+    assert small_linklist.kth_from_end(0) == 1
+    assert small_linklist.kth_from_end(1) == 2
+    assert small_linklist.kth_from_end(5) == "Exception, k is longer than list"
+    # assert small_linklist.kth_from_end(-2) == 'Exception, your k is not a positive integer'
+    # assert small_linklist.kth_from_end('five') == 'Exception, your k is not a positive integer'
+
+def test_kth_from_end_k_double_(small_double_rev_linklist):
+    """ Test to determine if k of different figures gives us known value"""
+    assert small_double_rev_linklist.kth_from_end(0) == 8
+    assert small_double_rev_linklist.kth_from_end(1) == 6
+    assert small_double_rev_linklist.kth_from_end(10) == "Exception, k is longer than list"
+
+
