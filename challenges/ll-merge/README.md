@@ -5,8 +5,8 @@ Write a function called mergeLists which takes two linked lists as arguments. Zi
 Try and keep additional space down to O(1)
 
 ## Approach and Efficiency
-This approach requires full traversal of the lists in order to get to a count. Then each
+This approach requires full traversal of the lists in order to get to a count.
 
 
 ## Solution
-<!-- Embedded whiteboard image -
+../../assets/ll_merge.jpg

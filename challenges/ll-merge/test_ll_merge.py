@@ -1,3 +1,6 @@
+from .linkedlist import LinkedList
+import pytest
+
 @pytest.fixture
 def firstcond(list1, list2):
     """this is a fixture for testing conditions when
