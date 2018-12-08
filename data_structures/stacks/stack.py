@@ -30,9 +30,7 @@ class Stack(object):
             self.push(val)
 
     def __repr__(self):
-        return f'<STACK { self.top }>'
-
-    # def
+        return f'<STACK Top: { self.top }>'
 
     def __len__(self):
         return self.stack_size
@@ -44,20 +42,28 @@ class Stack(object):
         node.next_node = self.top
         self.top = node
         self.stack_size += 1
-        return self
+        return self.top.value
 
     def pop(self):
         """
         """
-        old_top = self.top
-        self .top = old_top.next_node
+        if len(self) <= 0:
+            return ("No element(s) in the stack")
+        else:
 
-        old_top.next_node = Node
+            old_top = self.top
+            self .top = old_top.next_node
 
-        return old_top.value
+            old_top.next_node = Node
+            self.stack_size -= 1
+            return (old_top).value
+
 
     def peek(self):
         """
         """
-        return self.top  # or self.top.value
+        if len(self) is None or len(self) <= 0:
+            return ("No element(s) in the stack")
+        else:
+            return self.top.value
 
