@@ -2,7 +2,7 @@ class Node(object):
     """This is the class Node
 
     """
-    def __init__(self, value, next_node):
+    def __init__(self, value, next_node=None):
         self.value = value
         self.next_node = next_node
 
@@ -16,7 +16,7 @@ class Node(object):
 class Stack(object):
     """This class is used to build stack objects
     """
-    def __init__(self):
+    def __init__(self, iterable=None):
         self.top = None
         self.stack_size = 0
 
@@ -43,6 +43,7 @@ class Stack(object):
         node = Node(value)
         node.next_node = self.top
         self.top = node
+        self.stack_size += 1
         return self
 
     def pop(self):
