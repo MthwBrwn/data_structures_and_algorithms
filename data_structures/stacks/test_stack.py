@@ -42,3 +42,15 @@ def test_size_of_stack_small(small_test_stack):
     assert len(small_test_stack) == 4
 
 
+def test_for_known_value_zero(zero_test_stack):
+    """
+    """
+    assert zero_test_stack.top is None
+
+
+def test_for_known_value(small_test_stack):
+    """
+    """
+    assert (small_test_stack).top.value == 7
+
+
