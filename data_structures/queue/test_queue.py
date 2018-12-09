@@ -13,6 +13,12 @@ def one_queue():
     return q
 
 
+@pytest.fixture
+def iter_list():
+    q = Queue([6, 5, 4])
+    return q
+
+
 def test_for_class_queue_exists():
     """ This tests the import is working/ existence of class Queue in tests
     """
@@ -20,7 +26,7 @@ def test_for_class_queue_exists():
     assert isinstance(testaqueue, Queue)
 
 
-def test_for_top_of_empty():
+def test_for_front_of_empty():
     """ This tests the the value of of queue is 0 at start
     """
     testaqueue = Queue()
@@ -40,6 +46,18 @@ def test_for_back_of_empty():
     assert testaqueue.back is None
 
 
+def test_for_back_of_one(one_queue):
+    """ This checks the value of the back when enqueue is called
+    """
+    assert one_queue.back.value == 1
+
+
+def test_for_size_of_one(one_queue):
+    """ This checks the value of the back when enqueue is called
+    """
+    assert len(one_queue) == 1
+
+
 def test_for_size_of_empty(empty_queue):
     """ This tests the the size (len) of an empty queue object is None
     The test uses a pytest fixture.
@@ -57,3 +75,38 @@ def test_str_at_empty(empty_queue):
     """
     """
     assert str(empty_queue) == '<Queue Front: None>'
+
+
+def test_for_back_of_one(one_queue):
+    """ This checks the value of the back when enqueue is called
+    """
+    assert one_queue.back.value == 1
+
+
+def test_of_iterable():
+    """
+    """
+    q = Queue([6, 5, 4])
+    assert q.back.value == 4
+    assert repr(q) == "<Queue Front: <Node: 6>> <<Queue back: <Node: 4>>"
+    q.enqueue(3)
+    assert q.back.value == 3
+    assert repr(q) == "<Queue Front: <Node: 6>> <<Queue back: <Node: 3>>"
+
+
+def test_of_iterable_len():
+    """
+    """
+    q = Queue([6, 5, 4])
+    assert len(q) == 3
+    q.enqueue(3)
+    assert len(q) == 4
+
+
+
+# def test_error():
+#     """ Assertions about expected exceptions
+#     """
+#     q = Queue('test string for error')
+#     with pytest.raises(TypeError):
+#         return q

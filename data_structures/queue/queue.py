@@ -12,11 +12,11 @@ class Queue(object):
         if iterable is None:
             iterable = []
 
-        # if type(iterable) is not list:
-        #     raise TypeError('iterable must be of type list')
+        if type(iterable) is not list:
+            raise TypeError('iterable must be of type list')
 
-        # for val in iterable:
-        #     self.enqueue(val)
+        for val in iterable:
+            self.enqueue(val)
 
     def __len__(self):
         """ This method gets the length of a queue instance
