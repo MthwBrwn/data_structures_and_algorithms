@@ -1,7 +1,7 @@
 # queue
 
 **Author**: Matthew Brown
-**Version**: 1.0.0
+**Version**: 1.0.1
 
 ## Overview
 This application sets up a class of queue and methods for that class.
@@ -16,5 +16,5 @@ This application is written in Python3.6
 
 
 ## Change Log
-
+8:30 8 DEC - made changes to initial assignment submission
 

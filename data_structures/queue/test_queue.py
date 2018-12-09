@@ -3,11 +3,15 @@ import pytest
 
 @pytest.fixture
 def empty_queue():
+    """ This fixture si used to test a empty queue condition
+    """
     return Queue()
 
 
 @pytest.fixture
 def one_queue():
+    """this fixture is used to test a Queue with one node added (enqueue)
+    """
     q = Queue()
     q.enqueue(1)
     return q
@@ -15,6 +19,8 @@ def one_queue():
 
 @pytest.fixture
 def iter_list():
+    """ This is=fixture sets a small queue of iterated nodes for testing
+    """
     q = Queue([6, 5, 4])
     return q
 
@@ -66,13 +72,13 @@ def test_for_size_of_empty(empty_queue):
 
 
 def test_repr_at_empty(empty_queue):
-    """
+    """ This checks the repr value on an empty queue object
     """
     assert repr(empty_queue) == '<Queue Front: None> <<Queue back: None>'
 
 
 def test_str_at_empty(empty_queue):
-    """
+    """This checks that the front node is set to None
     """
     assert str(empty_queue) == '<Queue Front: None>'
 
@@ -95,7 +101,7 @@ def test_of_iterable():
 
 
 def test_of_iterable_len():
-    """
+    """This is a test to make sure the queue is iterable
     """
     q = Queue([6, 5, 4])
     assert len(q) == 3
@@ -127,7 +133,7 @@ def test_of_dequeue_with_known_check_value():
 
 
 def test_of_dequeue_with_empty(empty_queue):
-    """
+    """this tests for the Attribute Error with an attempted dequeue on empty
     """
     with pytest.raises(AttributeError):
         empty_queue.dequeue()

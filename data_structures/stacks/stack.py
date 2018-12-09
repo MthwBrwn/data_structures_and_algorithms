@@ -1,20 +1,8 @@
-class Node(object):
-    """This is the class Node
-
-    """
-    def __init__(self, value, next_node=None):
-        self.value = value
-        self.next_node = next_node
-
-    def __str__(self):
-        return f'{ self.value }'
-
-    def __repr__(self):
-        return f'<NODE: { self.value }>'
+from .node import Node
 
 
 class Stack(object):
-    """This class is used to build stack objects
+    """This class is used to build stack objects. Each object has a top and a size when instantiated
     """
     def __init__(self, iterable=None):
         self.top = None
@@ -30,9 +18,13 @@ class Stack(object):
             self.push(val)
 
     def __repr__(self):
+        """repr returns back information about the stack
+        """
         return f'<STACK Top: { self.top }>'
 
     def __len__(self):
+        """ This magic method returns back the number of nodes in the stack
+        """
         return self.stack_size
 
     def push(self, value):
@@ -45,7 +37,7 @@ class Stack(object):
         return self.top.value
 
     def pop(self):
-        """
+        """The pop method creates a node and inserts that node into the top of the tack (First in First out)
         """
         if len(self) <= 0:
             return ("No element(s) in the stack")
@@ -58,12 +50,8 @@ class Stack(object):
             self.stack_size -= 1
             return (old_top).value
 
-
     def peek(self):
+        """The peek allows a view of the top of the stack so that a pop is not performed on an empty stack
         """
-        """
-        if len(self) is None or len(self) <= 0:
-            return ("No element(s) in the stack")
-        else:
-            return self.top.value
+        return self.top
 

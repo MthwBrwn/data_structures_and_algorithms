@@ -1,9 +1,6 @@
 from .stack import Stack
 import pytest
 
-# fixtures
-
-
 
 @pytest.fixture
 def zero_test_stack():
@@ -36,14 +33,14 @@ def defined_stack():
 
 
 def test_module_exists():
-    """ This test to see if the module is Stack properly imported """
+    """ This test to see if the module is Stack properly imported
+    """
     assert Stack
 
 
 def test_size_of_stack_zero(zero_test_stack):
     """
     This test show that he length of the instantiated object has a size of zero
-
     """
     assert len(zero_test_stack) == 0
 
@@ -73,14 +70,15 @@ def test__repr_on_empty():
     """This tests the _repr_ responses for the stack objects
     """
     testastack = Stack()
-    assert str(testastack) == "<STACK Top: None>"
+    assert repr(testastack) == "<STACK Top: None>"
 
 
 def test_repr_on_iter_stack():
     """  This tests the _repr_ for the iterated stack from list
     """
     testastack = Stack([2, 4, 6, 8])
-    assert str(testastack) == "<STACK Top: 8>"
+    assert repr(testastack) == "<STACK Top: 8>"
+
 
 def test_pop_on_iter_stack():
     """  This tests the _repr_ for the iterated stack from list
@@ -94,13 +92,24 @@ def test_peek_at_empty():
     This tests that a message is displayed when a peek is done on a
     """
     testastack = Stack()
-    assert Stack.peek(testastack) == "No element(s) in the stack"
+    assert testastack.peek() is None
+
+
+def test_peek_at_filled_stack():
+    """This check to see if the peek method properly sees the top of a known stack
+    """
+    testastack = Stack([1, 2, 2, 5])
+    assert testastack.peek().value == 5
+    testastack.pop()
+    assert testastack.peek().value == 2
 
 
 def test_pop_at_empty():
     """
     This tests that a message is displayed when a pop is done on an empty node.
-    This prevents an error
+    This prevents an error. Then a push is done to make sure objects methods stil work
     """
     testastack = Stack()
     assert Stack.pop(testastack) == "No element(s) in the stack"
+    testastack.push(5)
+    assert testastack.peek().value == 5
