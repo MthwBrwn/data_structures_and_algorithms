@@ -50,11 +50,19 @@ class Queue(object):
 
         self.queue_size += 1
 
+    def peek(self):
+        return self.front
+
     def dequeue(self):
         """ dequeue does not take an argument - Dequeue removes the node at the front postion.
         """
+        if peak(self) is None:
+            raise AttributeError('cannot dequeue an empty queue')
         temp = self.front
-        self.front = self.front.next
-        temp.next = None
-        self.queue_size -= 1
-        return temp
+        if temp:  #using falsy logic
+            self.front = self.front.next
+            temp.next = None
+            self.queue_size -= 1
+            return temp
+        else: #self.front is None
+            return temp

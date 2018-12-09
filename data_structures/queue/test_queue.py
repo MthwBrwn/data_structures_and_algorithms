@@ -123,3 +123,34 @@ def test_of_dequeue_with_known_check_value():
     """
     q = Queue([2, 4, 6, 8])
     assert q.dequeue().value == 2
+    assert len(q) == 3
+
+
+def test_of_dequeue_with_empty(empty_queue):
+    """
+    """
+    with pytest.raises(AttributeError):
+        empty_queue.dequeue()
+
+
+def test_of_empty_to_enqueue_to_dequeue():
+    """This test check to see if enqueue will add a string character
+    """
+    q = Queue()
+    q.enqueue('test')
+    assert q.back.value == "test"
+    q.dequeue()
+    with pytest.raises(AttributeError):
+        q.dequeue()
+
+
+
+def test_of_peek(empty_queue):
+    """This test checks is the peek function works for an enquque followed by a dequeue
+    """
+    empty_queue.enqueue(3)
+    assert empty_queue.peek().value == 3
+    empty_queue.dequeue()
+    assert empty_queue.peek() is None
+
+
