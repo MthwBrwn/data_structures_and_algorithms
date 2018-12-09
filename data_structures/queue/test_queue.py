@@ -103,10 +103,23 @@ def test_of_iterable_len():
     assert len(q) == 4
 
 
+def test_error():
+    """ Assertions about expected exceptions
+    """
+    with pytest.raises(TypeError):
+        Queue('test string for error')
 
-# def test_error():
-#     """ Assertions about expected exceptions
-#     """
-#     q = Queue('test string for error')
-#     with pytest.raises(TypeError):
-#         return q
+def test_of_dequeue_with_known_check_len():
+    """ This is first test of dequeue with a queue of iterated values
+    """
+    q = Queue([2, 4, 6, 8])
+    assert len(q) == 4
+    q.dequeue()
+    assert len(q) == 3
+
+
+def test_of_dequeue_with_known_check_value():
+    """ This is first test of dequeue with a queue of iterated values
+    """
+    q = Queue([2, 4, 6, 8])
+    assert q.dequeue().value == 2

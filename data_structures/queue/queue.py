@@ -49,3 +49,12 @@ class Queue(object):
             self.back = node
 
         self.queue_size += 1
+
+    def dequeue(self):
+        """ dequeue does not take an argument - Dequeue removes the node at the front postion.
+        """
+        temp = self.front
+        self.front = self.front.next
+        temp.next = None
+        self.queue_size -= 1
+        return temp
