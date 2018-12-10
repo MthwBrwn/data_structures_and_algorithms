@@ -114,10 +114,10 @@ def test_append_test_for_small(small_linklist):
     assert len(small_linklist) == 5
 
 
-# def test_insert_before(small_linklist):
-#     assert len(small_linklist) == 4
-#     small_linklist.insert_before(3, 7)
-#     assert len(small_linklist) == 5
+def test_for_insert_before():
+    ll = LinkedList([1, 2, 4, 5])
+    ll.insert_before(4, 3)
+    assert ll == [[1, 2, 3, 4, 5]]
 
 
 def test_kth_from_end_k_is(small_linklist):
