@@ -78,11 +78,12 @@ class LinkedList(object):
         current = self.head
         while current._next:
             current = current._next
-            if current._next.val == find_val:
+            print (current._next)
+            if current._next == find_val:
                 new_node._next = current._next
                 current._next = new_node
                 new_node = current
-
+                self.size += 1
 
     def kth_from_end(self, k):
         """This method uses a k value to establish a point k from the head
