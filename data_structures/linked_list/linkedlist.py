@@ -76,14 +76,29 @@ class LinkedList(object):
         and then the new_val is appended in front of it"""
         new_node = Node(new_val)
         current = self.head
-        while current._next:
+        previous = None
+        # # #if head is None
+        if current is None:
+            raise ValueError("There aren't any nodes in linkedlist")
+        # find_val is equal to head.val
+        if current.val == find_val:
+            new_node._next = current
+            self.head = new_node
+            self._size += 1
+            return self
+        while current:
+            if current.val == find_val:
+                new_node._next = current
+                previous._next = new_node
+                self._size += 1
+                return self
+            previous = current
             current = current._next
-            print (current._next)
-            if current._next == find_val:
-                new_node._next = current._next
-                current._next = new_node
-                new_node = current
-                self.size += 1
+        # find = False ??
+
+        raise ValueError("A node did not match your find value")
+        return
+
 
     def kth_from_end(self, k):
         """This method uses a k value to establish a point k from the head

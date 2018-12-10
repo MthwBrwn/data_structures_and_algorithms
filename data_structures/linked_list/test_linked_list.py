@@ -114,10 +114,35 @@ def test_append_test_for_small(small_linklist):
     assert len(small_linklist) == 5
 
 
-def test_for_insert_before():
-    ll = LinkedList([1, 2, 4, 5])
-    ll.insert_before(4, 3)
-    assert ll == [[1, 2, 3, 4, 5]]
+def test_for_insert_before_no_nodes():
+    ll = LinkedList()
+    with pytest.raises(ValueError) as e:
+        ll.insert_before(1, 1)
+        assert "There aren't any nodes in linkedlist" in str(e.value)
+
+#test for not found
+def test_for_insert_before_not_found():
+    ll = LinkedList([1, 2])
+    with pytest.raises(ValueError) as e:
+        ll.insert_before(4, 1)
+    assert "A node did not match your find value" in str(e.value)
+
+
+def test_for_insert_before_head_is_find_val():
+    ll = LinkedList([1])
+    assert len(ll) == 1
+    ll.insert_before(1, 3)
+    assert len(ll) == 2
+    assert ll.includes(1) is True
+    assert ll.includes(3) is True
+    assert ll.head.val == 3
+
+
+def test_for_insert_small_list_known_values():
+    ll = LinkedList([2, 4, 6, 8])
+    ll.insert_before(6, 5)
+    assert ll.includes(5) is True
+    assert ll.kth_from_end(3) == 5
 
 
 def test_kth_from_end_k_is(small_linklist):
@@ -127,6 +152,7 @@ def test_kth_from_end_k_is(small_linklist):
     assert small_linklist.kth_from_end(5) == "Exception, k is longer than list"
     # assert small_linklist.kth_from_end(-2) == 'Exception, your k is not a positive integer'
     # assert small_linklist.kth_from_end('five') == 'Exception, your k is not a positive integer'
+
 
 def test_kth_from_end_k_double_(small_double_rev_linklist):
     """ Test to determine if k of different figures gives us known value"""
