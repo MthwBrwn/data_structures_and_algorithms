@@ -145,6 +145,15 @@ def test_for_insert_before_small_list_known_values():
     assert ll.kth_from_end(3) == 5
 
 
+def test_for_insert_after_not_found():
+    ll = LinkedList([1, 2])
+    with pytest.raises(ValueError) as e:
+        ll.insert_after(4, 1)
+    assert "A node did not match your find value" in str(e.value)
+
+
+
+
 def test_kth_from_end_k_is(small_linklist):
     """ Test to determine if k of different figures gives us known value"""
     assert small_linklist.kth_from_end(0) == 1
