@@ -74,11 +74,31 @@ class LinkedList(object):
     def insert_before(self, find_val, new_val):
         """ in this method the node with the find val is located
         and then the new_val is appended in front of it"""
-        current = self.head
         new_node = Node(new_val)
+        current = self.head
+        previous = None
+        # # #if head is None
+        if current is None:
+            raise ValueError("There aren't any nodes in linkedlist")
+        # find_val is equal to head.val
         if current.val == find_val:
             new_node._next = current
-        self.head = new_node
+            self.head = new_node
+            self._size += 1
+            return self
+        while current:
+            if current.val == find_val:
+                new_node._next = current
+                previous._next = new_node
+                self._size += 1
+                return self
+            previous = current
+            current = current._next
+        # find = False ??
+
+        raise ValueError("A node did not match your find value")
+        return
+
 
     def kth_from_end(self, k):
         """This method uses a k value to establish a point k from the head

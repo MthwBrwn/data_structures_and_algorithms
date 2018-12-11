@@ -115,6 +115,7 @@ def test_error():
     with pytest.raises(TypeError):
         Queue('test string for error')
 
+
 def test_of_dequeue_with_known_check_len():
     """ This is first test of dequeue with a queue of iterated values
     """
