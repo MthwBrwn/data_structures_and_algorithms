@@ -26,3 +26,7 @@ This is a repo of whiteboard and coded exercises
 
 * stacks
     This application sets up a methods on the Stack data structure. Methods include length, peek , pop, push. The class will accept an iterable as an argument
+
+## queue with stacks
+This application sets up a pseudoqueue object that acts like a queue using two stacks
+

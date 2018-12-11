@@ -138,7 +138,7 @@ def test_for_insert_before_head_is_find_val():
     assert ll.head.val == 3
 
 
-def test_for_insert_small_list_known_values():
+def test_for_insert_before_small_list_known_values():
     ll = LinkedList([2, 4, 6, 8])
     ll.insert_before(6, 5)
     assert ll.includes(5) is True
