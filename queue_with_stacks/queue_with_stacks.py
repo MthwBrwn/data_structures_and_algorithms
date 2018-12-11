@@ -37,21 +37,22 @@ class Stack(object):
 
 
 class PseudoQueue(object):
-    """This class instatiates two stacks in order to mimic the
+    """This class instantiates two stacks in order to mimic the
     functionality of a queue
     """
     def __init__(self):
-        stack_a = Stack()
-        stack_b = Stack()
+        self.stack_a = Stack()
+        self.stack_b = Stack()
 
     def enqueue(self, value):
-        """ enquue is a method for the pseudoQueue class that is made up of Stack methods
+        """ enqueue is a method for the pseudoQueue class that is made up of Stack methods
         """
-        while stack_b.self.top is not None:
+        while stack_b.top is not None:
             popval = stack_b.pop()
             stack_a.push(popval)
 
         stack_a.pop(value)
+        return stack_a.top.value
 
 
     def dequeue(self):
