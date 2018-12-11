@@ -44,7 +44,6 @@ class PseudoQueue(object):
         self.stack_a = Stack()
         self.stack_b = Stack()
 
-
     def enqueue(self, value):
         """ enqueue is a method for the pseudoQueue class that is made up of Stack methods
         """
@@ -53,11 +52,16 @@ class PseudoQueue(object):
             self.stack_a.push(popval)
 
         self.stack_a.push(value)
-        return self.stack_a
+        # return self.stack_a
 
+    def dequeue(self):
+        """dequeue is a method that uses stack methods of push pop and peek to mimic functionality of a queue.
+        """
+        if self.stack_a.top is None and self.stack_b.top is None:
+            ValueError('There are no nodes to remove')
 
-    # def dequeue(self):
-    #     """
-    #     """
-    #     if stack_a.self.top is None and stack_b.self.top is None:
-    #         ValueError('There ar')
+        while self.stack_a.peek is not None:
+            popval = self.stack_b.pop()
+            self.stack_b.push(popval)
+
+        self.stack_b.pop()
