@@ -120,10 +120,8 @@ class LinkedList(object):
 
             current = current._next
         # find = False ??
-
         raise ValueError("A node did not match your find value")
         return
-
 
     def kth_from_end(self, k):
         """This method uses a k value to establish a point k from the head

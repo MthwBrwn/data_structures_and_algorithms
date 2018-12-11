@@ -162,6 +162,13 @@ def test_for_insert_after_head_is_find_val():
     assert ll.head.val == 1
 
 
+def test_for_insert_after_small_list_known_values():
+    ll = LinkedList([2, 4, 6, 8])
+    ll.insert_after(6, 5)
+    assert ll.includes(5) is True
+    assert ll.kth_from_end(2) == 5
+
+
 def test_kth_from_end_k_is(small_linklist):
     """ Test to determine if k of different figures gives us known value"""
     assert small_linklist.kth_from_end(0) == 1
