@@ -14,3 +14,4 @@ This application is written in Python3.6
 This uses Pytest for unit testing
 
 ## Solution
+![](../../assets/queue_with_stacks.jpg)
