@@ -1,13 +1,15 @@
-# Create a Class for a Node which is aware of the value as val and left and right children
-# as left and right respectively
+# Create a Class for a Node which is aware of the value as val and left and
+#  right children as left and right respectively
+
 
 class Node (object):
-    """ Class node s aware of the value as val and left and right children as left and right
+    """ Class node s aware of the value as val and left and right children
+    as left and right
     """
-    def __init__(self, val)
-    self.val = val
-    self.right = None
-    self.left = None
+    def __init__(self, val):
+        self.val = val
+        self.right = None
+        self.left = None
 
 # Ensure that you have a __repr__ and __str__ method defined to return
 # appropriate representations of the node
@@ -35,7 +37,7 @@ class BST (object):
 
     if iterable is None:
             iterable = []
-    if type (iterable) is not list:
+    if type(iterable) is not list:
         raise TypeError('iterable must be of type list')
     for val in iterable:
         self.insert(val)
@@ -55,8 +57,11 @@ class BST (object):
 # This class should be aware of depth-first traversal methods for
 # in_order, pre_order, and post_order traversals
     def pre_order(self, node=None, operation):
+        """
+        """
         if node is None:
             return
+
     operation(node)
 
     if node.left_child is not None:
@@ -65,16 +70,22 @@ class BST (object):
         pre_order(node.right_child)
 
     def post_order(self, node=None, operation):
+        """
+        """
     if Node is None:
         return
     if node.left_child is not None:
         pre_order(node.left_child)
     if node.right_child is not None:
         pre_order(node.right_child)
-
     operation(node)
 
     def in_order(self, node=None, operation):
+        """
+        """
+    if Node is None:
+        return
+
     if node.left_child is not None:
         pre_order(node.left_child)
 
