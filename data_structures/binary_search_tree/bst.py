@@ -52,7 +52,37 @@ class BST (object):
         """
         return (f' {root.value}')
 
+# This class should be aware of depth-first traversal methods for
+# in_order, pre_order, and post_order traversals
+    def pre_order(self, node=None, operation):
+        if node is None:
+            return
+    operation(node)
 
-# This class should be aware of depth-first traversal methods for in_order, pre_order, and post_order traversals
+    if node.left_child is not None:
+        pre_order(node.left_child)
+    if node.right_child is not None:
+        pre_order(node.right_child)
 
-# This class should have the ability to insert a new node into the tree. Your insertion should follow an O(log n) search solution to find the correct place for inserting the new node.
+    def post_order(self, node=None, operation):
+    if Node is None:
+        return
+    if node.left_child is not None:
+        pre_order(node.left_child)
+    if node.right_child is not None:
+        pre_order(node.right_child)
+
+    operation(node)
+
+    def in_order(self, node=None, operation):
+    if node.left_child is not None:
+        pre_order(node.left_child)
+
+    operation(node)
+
+    if node.right_child is not None:
+        pre_order(node.right_child)
+
+# This class should have the ability to insert a new node into the tree.
+# Your insertion should follow an O(log n) search solution to find the
+# correct place for inserting the new node.
