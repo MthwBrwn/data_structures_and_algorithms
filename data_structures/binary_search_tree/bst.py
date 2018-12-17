@@ -2,8 +2,16 @@
 # as left and right respectively
 
 class Node (object):
+    def __init__(self, val)
+    self.val = val
+    self.right = None
+    self.left = None
 
-# Ensure that you have a __repr__ and __str__ method defined to return appropriate representations of the node
+# Ensure that you have a __repr__ and __str__ method defined to return
+# appropriate representations of the node
+
+    def __repr__(self):
+        return f'val : {self.val} ; right : {self.right} ; left : {self.left} }'
 
 # Create a Class for a BST, which is aware of the root of the tree as root
 
