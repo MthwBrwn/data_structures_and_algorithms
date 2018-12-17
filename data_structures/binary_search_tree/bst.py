@@ -30,10 +30,15 @@ class Node (object):
 class BST (object):
     """ BST is a class that is aware of the root as root
     """
-    def __init__(self):
+    def __init__(self, iterable=None):
         self.root = None
 
-
+    if iterable is None:
+            iterable = []
+    if type (iterable) is not list:
+        raise TypeError('iterable must be of type list')
+    for val in iterable:
+        self.insert(val)
 # Ensure that you have a __repr__ and __str__ method defined to
 # return appropriate representations of the tree
 
