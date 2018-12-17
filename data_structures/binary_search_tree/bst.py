@@ -2,6 +2,8 @@
 # as left and right respectively
 
 class Node (object):
+    """ Class node s aware of the value as val and left and right children as left and right
+    """
     def __init__(self, val)
     self.val = val
     self.right = None
@@ -11,13 +13,40 @@ class Node (object):
 # appropriate representations of the node
 
     def __repr__(self):
-        return f'val : {self.val} ; right : {self.right} ; left : {self.left} }'
+        """ The repr offers all the attributes of the class for reference
+        """
+        return (f'val : {self.val} ; right : {self.right} ; left : {self.left} ')
+
+    def __str__(self):
+        """ The string provides the value of the node
+        """
+        return (f' The value of the node is {self.val}')
 
 # Create a Class for a BST, which is aware of the root of the tree as root
+# This class should accept an iterable as an argument when initialized,
+# such as [20, 18, 12, 19, 11, 14, 40, 31, 22, 33], which creates a tree from that argument
 
-# Ensure that you have a __repr__ and __str__ method defined to return appropriate representations of the tree
 
-# This class should accept an iterable as an argument when initialized, such as [20, 18, 12, 19, 11, 14, 40, 31, 22, 33], which creates a tree from that argument
+class BST (object):
+    """ BST is a class that is aware of the root as root
+    """
+    def __init__(self):
+        self.root = None
+
+
+# Ensure that you have a __repr__ and __str__ method defined to
+# return appropriate representations of the tree
+
+    def __repr__(self):
+        """repr returns back the root
+        """
+        return (f' {root}')
+
+    def __str__(self):
+        """str returns back the value of root
+        """
+        return (f' {root.value}')
+
 
 # This class should be aware of depth-first traversal methods for in_order, pre_order, and post_order traversals
 
