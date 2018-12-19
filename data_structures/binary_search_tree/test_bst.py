@@ -26,4 +26,12 @@ def test_insert_for_node():
     new_tree = BST([2])
     new_tree.insert_node(3)
     assert new_tree.root.val == 2
-    # assert new_tree.root.right.val == 3
+    assert new_tree.root.right.val == 3
+    assert new_tree.root.left is None
+    new_tree.insert_node(4)
+    assert new_tree.root.right.right.val == 4
+
+
+def test_for_the_iteratble():
+    new_tree = BST([4, 5, 6])
+    assert new_tree.root.val == 4

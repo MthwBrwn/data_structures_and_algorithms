@@ -105,11 +105,16 @@ class BST (object):
 
         while current:
             if val < current.val:
-                current = current.left
+                if current.left is not None:
+                    current = current.left
+                else:
+                    current.left = new_node
+                    break
 
             if val >= current.val:
-                current = current.right
-
-        if current is None:
-            new_node = current
+                if current.right is not None:
+                    current = current.right
+                else:
+                    current.right = new_node
+                    break
 
