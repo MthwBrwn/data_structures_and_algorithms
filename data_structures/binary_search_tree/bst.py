@@ -35,65 +35,81 @@ class BST (object):
     def __init__(self, iterable=None):
         self.root = None
 
-    if iterable is None:
+        if iterable is None:
             iterable = []
-    if type(iterable) is not list:
-        raise TypeError('iterable must be of type list')
-    for val in iterable:
-        self.insert(val)
+        if type(iterable) is not list:
+            raise TypeError('iterable must be of type list')
+        for val in iterable:
+            self.insert(val)
 # Ensure that you have a __repr__ and __str__ method defined to
 # return appropriate representations of the tree
 
     def __repr__(self):
         """repr returns back the root
         """
-        return (f' {root}')
+        return (f' {self.root}')
 
     def __str__(self):
         """str returns back the value of root
         """
-        return (f' {root.value}')
+        return (f' {self.root.value}')
 
 # This class should be aware of depth-first traversal methods for
 # in_order, pre_order, and post_order traversals
-    def pre_order(self, node=None, operation):
-        """
+    def pre_order(self, node):
+        """pre order traverses through the tree in a top, left, right fashion
         """
         if node is None:
             return
+        print(node)
 
-    operation(node)
+        self.pre_order(node.left_child)
 
-    if node.left_child is not None:
-        pre_order(node.left_child)
-    if node.right_child is not None:
-        pre_order(node.right_child)
+        self.pre_order(node.right_child)
 
-    def post_order(self, node=None, operation):
+    def post_order(self, node):
+        """post order traverses in the fashion of Left, Right , Root
         """
+        if Node is None:
+            return
+
+        self.post_order(node.left_child)
+
+        self.post_order(node.right_child)
+        # operation(node)
+        print(node)
+
+    def in_order(self, node):
+        """in order traverses in the fashion of Left, Root, Right
         """
-    if Node is None:
-        return
-    if node.left_child is not None:
-        pre_order(node.left_child)
-    if node.right_child is not None:
-        pre_order(node.right_child)
-    operation(node)
+        if Node is None:
+            return
 
-    def in_order(self, node=None, operation):
-        """
-        """
-    if Node is None:
-        return
+        self.in_order(node.left_child)
 
-    if node.left_child is not None:
-        pre_order(node.left_child)
+        print(node)
 
-    operation(node)
-
-    if node.right_child is not None:
-        pre_order(node.right_child)
+        self.in_order(node.right_child)
 
 # This class should have the ability to insert a new node into the tree.
 # Your insertion should follow an O(log n) search solution to find the
 # correct place for inserting the new node.
+    def insert_node(self, value):
+        """This function is used to insert a node at a specific point
+        """
+        new_node = Node(val)
+        current = self.root
+        if self.root is None:
+            self.root = new_node
+            return new_node
+
+        while current:
+            if val < current.val:
+                if current is None:
+                    new_node = current
+                    return new_node
+                current.right
+
+
+
+
