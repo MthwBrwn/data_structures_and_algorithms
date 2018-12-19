@@ -26,4 +26,4 @@ def test_insert_for_node():
     new_tree = BST([2])
     new_tree.insert_node(3)
     assert new_tree.root.val == 2
-
+    # assert new_tree.root.right.val == 3

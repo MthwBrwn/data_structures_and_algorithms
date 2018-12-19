@@ -52,7 +52,7 @@ class BST (object):
     def __str__(self):
         """str returns back the value of root
         """
-        return (f' {self.root.value}')
+        return (f' {self.root.val}')
 
 # This class should be aware of depth-first traversal methods for
 # in_order, pre_order, and post_order traversals
@@ -105,15 +105,11 @@ class BST (object):
 
         while current:
             if val < current.val:
-                if current is None:
-                    new_node = current
-                    return new_node
                 current = current.left
 
             if val >= current.val:
-                if current is None:
-                    new_node = current
-                    return new_node
                 current = current.right
 
+        if current is None:
+            new_node = current
 
