@@ -40,7 +40,7 @@ class BST (object):
         if type(iterable) is not list:
             raise TypeError('iterable must be of type list')
         for val in iterable:
-            self.insert(val)
+            self.insert_node(val)
 # Ensure that you have a __repr__ and __str__ method defined to
 # return appropriate representations of the tree
 
@@ -94,7 +94,7 @@ class BST (object):
 # This class should have the ability to insert a new node into the tree.
 # Your insertion should follow an O(log n) search solution to find the
 # correct place for inserting the new node.
-    def insert_node(self, value):
+    def insert_node(self, val):
         """This function is used to insert a node at a specific point
         """
         new_node = Node(val)
@@ -108,8 +108,12 @@ class BST (object):
                 if current is None:
                     new_node = current
                     return new_node
-                current.right
+                current = current.left
 
-
+            if val >= current.val:
+                if current is None:
+                    new_node = current
+                    return new_node
+                current = current.right
 
 
