@@ -41,7 +41,7 @@ def test_insert_for_node():
     assert new_tree.root.right.right.val == 4
 
 
-def test_for_the_iteratble():
+def test_for_the_iterable():
     """ This tests the ability to create trees through the iterable feature of class BST
     """
     new_tree = BST([4, 5, 6])
@@ -63,3 +63,33 @@ def test_for_left_left():
     assert new_tree.root.left.val == 5
     assert new_tree.root.left.left.val == 4
     assert new_tree.root.right is None
+
+# def test_in_order():
+#     """
+#     """
+#     new_tree = BST([5, 1, 7])
+#     assert new_tree.pre_order() == "1 5 7"
+
+
+def test_maximum_value():
+    """The tests the function of the find max method against known values
+    """
+    new_tree = BST([4, 5, 6])
+    assert new_tree.root.val == 4
+    assert new_tree.find_maximum_value() == 6
+
+
+def test_find_maximum_val_empty():
+    """This tests that a BST with no nodes will return as none
+    """
+    new_tree = BST()
+    assert new_tree.find_maximum_value() is None
+
+
+def test_find_maximum_val_empty_add1():
+    """This test determines if the none value will return as a value after an insert
+    """
+    new_tree = BST()
+    new_tree.insert_node(1)
+    assert new_tree.find_maximum_value() == 1
+
