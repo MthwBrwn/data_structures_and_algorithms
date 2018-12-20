@@ -61,10 +61,10 @@ class BST (object):
         """
         if node is None:
             return
-        print(node)
+
+        print(node.val)
 
         self.pre_order(node.left_child)
-
         self.pre_order(node.right_child)
 
     def post_order(self, node):
@@ -77,7 +77,7 @@ class BST (object):
 
         self.post_order(node.right_child)
         # operation(node)
-        print(node)
+        print(node.val)
 
     def in_order(self, node):
         """in order traverses in the fashion of Left, Root, Right
@@ -117,4 +117,27 @@ class BST (object):
                 else:
                     current.right = new_node
                     break
+
+    def find_maximum_value(self):
+        if self.root is None:
+            return
+        maxVal = self.root.val
+
+        def _find_maximum_value(node):
+                """this method utilizes a preorder method to traverse through the tree.
+                If the node.val is greater, the max val is assigned
+                """
+                if node is None:
+                    return
+                nonlocal maxVal
+                if node.val > maxVal:
+                    maxVal = node.val
+
+                _find_maximum_value(node.left)
+
+                _find_maximum_value(node.right)
+
+        _find_maximum_value(self.root)
+        return maxVal
+
 

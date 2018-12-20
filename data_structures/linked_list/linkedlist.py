@@ -99,13 +99,11 @@ class LinkedList(object):
         raise ValueError("A node did not match your find value")
         return
 
-
     def insert_after(self, find_val, new_val):
         """ in this method the node with the find val is located
         and then the new_val is appended behind it"""
         new_node = Node(new_val)
         current = self.head
-        previous = None
         # # #if head is None
         if current is None:
             raise ValueError("There aren't any nodes in linkedlist")
