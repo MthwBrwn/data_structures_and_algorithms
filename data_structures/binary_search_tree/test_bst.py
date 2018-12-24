@@ -1,5 +1,4 @@
-from .bst import Node
-from .bst import BST
+from .bst import Node, BST, fizz_buzz
 import pytest
 import sys
 
@@ -225,5 +224,15 @@ def test_find_maximum_val_empty_add1():
     assert new_tree.find_maximum_value() == 1
 
 
+def test_fizz_buzz():
+    """This tests the new class fizz buzz with known values
+    """
+    new_tree = BST([5, 3, 7, 15])
+    fizz_buzz(new_tree)
+
+    assert new_tree.root.val == "buzz"
+    # assert new_tree.root.left.value == "fizz"
+    # assert new_tree.root.right.value == "buzz"
+    # assert new_tree.root.right.right.value == "fizzbuzz"
 
 

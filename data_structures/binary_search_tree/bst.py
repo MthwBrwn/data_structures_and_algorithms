@@ -11,8 +11,8 @@ class Node (object):
         self.right = None
         self.left = None
 
-# Ensure that you have a __repr__ and __str__ method defined to return
-# appropriate representations of the node
+    # Ensure that you have a __repr__ and __str__ method defined to return
+    # appropriate representations of the node
 
     def __repr__(self):
         """ The repr offers all the attributes of the class for reference
@@ -41,8 +41,8 @@ class BST (object):
             raise TypeError('iterable must be of type list')
         for val in iterable:
             self.insert_node(val)
-# Ensure that you have a __repr__ and __str__ method defined to
-# return appropriate representations of the tree
+    # Ensure that you have a __repr__ and __str__ method defined to
+    # return appropriate representations of the tree
 
     def __repr__(self):
         """repr returns back the root
@@ -54,8 +54,35 @@ class BST (object):
         """
         return (f' {self.root.val}')
 
-# This class should be aware of depth-first traversal methods for
-# in_order, pre_order, and post_order traversals
+    # This class should have the ability to insert a new node into the tree.
+    # Your insertion should follow an O(log n) search solution to find the
+    # correct place for inserting the new node.
+    def insert_node(self, val):
+        """This function is used to insert a node at a specific point
+        """
+        new_node = Node(val)
+        current = self.root
+        if self.root is None:
+            self.root = new_node
+            return new_node
+
+        while current:
+            if val < current.val:
+                if current.left is not None:
+                    current = current.left
+                else:
+                    current.left = new_node
+                    break
+
+            if val >= current.val:
+                if current.right is not None:
+                    current = current.right
+                else:
+                    current.right = new_node
+                    break
+
+    # This class should be aware of depth-first traversal methods for
+    # in_order, pre_order, and post_order traversals
     def in_order(self, operation):
         """in order traverses in the fashion of Left, Root, Right
         """
@@ -97,37 +124,6 @@ class BST (object):
 
         _traverse(self.root)
 
-
-
-
-
-# This class should have the ability to insert a new node into the tree.
-# Your insertion should follow an O(log n) search solution to find the
-# correct place for inserting the new node.
-    def insert_node(self, val):
-        """This function is used to insert a node at a specific point
-        """
-        new_node = Node(val)
-        current = self.root
-        if self.root is None:
-            self.root = new_node
-            return new_node
-
-        while current:
-            if val < current.val:
-                if current.left is not None:
-                    current = current.left
-                else:
-                    current.left = new_node
-                    break
-
-            if val >= current.val:
-                if current.right is not None:
-                    current = current.right
-                else:
-                    current.right = new_node
-                    break
-
     def find_maximum_value(self):
         if self.root is None:
             return
@@ -150,4 +146,22 @@ class BST (object):
         _find_maximum_value(self.root)
         return maxVal
 
+
+def fizz_buzz(tree):
+    """ Fiz buzz takes a tree as argument, and returns a tree where
+    multiples of 3 are returned as 'fizz' and multiples of 5 are returned
+    as 'buzz'
+    """
+    def fizz_buzz_operation(node):
+        if node.val % 3 == 0 and node.val % 5 == 0:
+            node.val = 'fizzbuzz'
+        elif node.val % 3 == 0:
+            node.val = 'fizz'
+        elif node.val % 5 == 0:
+            node.val = 'buzz'
+        else:
+            pass
+
+    tree.in_order(fizz_buzz_operation)
+    return tree
 
