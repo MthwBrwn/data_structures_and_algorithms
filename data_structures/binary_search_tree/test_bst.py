@@ -129,8 +129,36 @@ def test_pre_order():
     def operation(node):
         nonlocal report
         report += str(node.val) + " "
+
     new_tree.pre_order(operation)
     assert report == "5 1 7 10 "
+
+
+def test_pre_order_zero(empty_tree):
+    """ This tests the pre_ order method with an empty tree
+    """
+    new_tree = BST([])
+    report = ''
+
+    def operation(node):
+        nonlocal report
+        report += str(node.val) + " "
+
+    new_tree.pre_order(operation)
+    assert report == ""
+
+
+def test_pre_order_negatives():
+    """ This tests to see if the method works with a tree made of negtives
+    """
+    new_tree = BST([-5, -1, -7, -10])
+    report = ''
+
+    def operation(node):
+        nonlocal report
+        report += str(node.val) + " "
+    new_tree.pre_order(operation)
+    assert report == "-5 -7 -10 -1 "
 
 
 def test_maximum_value():
