@@ -153,14 +153,22 @@ def fizz_buzz(tree):
     as 'buzz'
     """
     def fizz_buzz_operation(node):
-        if node.val % 3 == 0 and node.val % 5 == 0:
-            node.val = 'fizzbuzz'
-        elif node.val % 3 == 0:
-            node.val = 'fizz'
-        elif node.val % 5 == 0:
-            node.val = 'buzz'
-        else:
-            pass
+        # if node.val % 3 == 0 and node.val % 5 == 0:
+        #     node.val = 'fizzbuzz'
+        # elif node.val % 3 == 0:
+        #     node.val = 'fizz'
+        # elif node.val % 5 == 0:
+        #     node.val = 'buzz'
+        # else:
+        #     pass
+
+        val = ''
+        if node.val % 3 == 0:
+            val += 'fizz'
+        if node.val % 5 == 0:
+            val += 'buzz'
+
+        node.val = val or node.val
 
     tree.in_order(fizz_buzz_operation)
     return tree
