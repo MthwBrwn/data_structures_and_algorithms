@@ -231,8 +231,27 @@ def test_fizz_buzz():
     fizz_buzz(new_tree)
 
     assert new_tree.root.val == "buzz"
-    # assert new_tree.root.left.value == "fizz"
-    # assert new_tree.root.right.value == "buzz"
-    # assert new_tree.root.right.right.value == "fizzbuzz"
+    assert new_tree.root.left.val == "fizz"
+    assert new_tree.root.right.val == 7
+    assert new_tree.root.right.right.val == "fizzbuzz"
 
 
+def test_fizz_buzz_empty(empty_tree):
+    """This tests the new class fizz buzz with empty tree
+    """
+
+    fizz_buzz(empty_tree)
+
+    assert empty_tree.root is None
+
+
+def test_fizz_buzz_negative():
+    """This tests the new class fizz buzz with negative values
+    """
+    new_tree = BST([-5, -3, -7, -15])
+    fizz_buzz(new_tree)
+
+    assert new_tree.root.val == "buzz"
+    assert new_tree.root.left.val == -7
+    assert new_tree.root.right.val == "fizz"
+    assert new_tree.root.left.left.val == "fizzbuzz"
