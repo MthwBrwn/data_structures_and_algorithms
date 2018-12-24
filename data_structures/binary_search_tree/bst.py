@@ -56,40 +56,50 @@ class BST (object):
 
 # This class should be aware of depth-first traversal methods for
 # in_order, pre_order, and post_order traversals
-    def pre_order(self, node):
-        """pre order traverses through the tree in a top, left, right fashion
-        """
-        if node is None:
-            return
-
-        print(node.val)
-
-        self.pre_order(node.left_child)
-        self.pre_order(node.right_child)
-
-    def post_order(self, node):
-        """post order traverses in the fashion of Left, Right , Root
-        """
-        if Node is None:
-            return
-
-        self.post_order(node.left_child)
-
-        self.post_order(node.right_child)
-        # operation(node)
-        print(node.val)
-
-    def in_order(self, node):
+    def in_order(self, operation):
         """in order traverses in the fashion of Left, Root, Right
         """
-        if Node is None:
-            return
+        def _traverse(root):
+        # base case
+            if root is None:
+                return
 
-        self.in_order(node.left_child)
+            _traverse(root.left)
+            operation(root)
+            _traverse(root.right)
 
-        print(node)
+        _traverse(self.root)
 
-        self.in_order(node.right_child)
+    def pre_order(self, operation):
+        """pre order traverses through the tree in a root, left, right fashion
+        """
+        def _traverse(root):
+            if root is None:
+                return
+
+            operation(root)
+            _traverse(root.left)
+            _traverse(root.right)
+
+        _traverse(self.root)
+
+    def post_order(self, operation):
+        """post order traverses in the fashion of Left, Right , Root
+        """
+        def _traverse(root):
+            if root is None:
+                return
+
+            _traverse(root.left)
+            _traverse(root.right)
+
+            operation(root)
+
+        _traverse(self.root)
+
+
+
+
 
 # This class should have the ability to insert a new node into the tree.
 # Your insertion should follow an O(log n) search solution to find the

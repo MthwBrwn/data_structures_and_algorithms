@@ -1,9 +1,26 @@
 from .bst import Node
 from .bst import BST
 import pytest
+import sys
 
 
-# @pytest fixture
+@pytest.fixture
+def starter_tree():
+    """
+
+           10
+        8      12
+      4
+    """
+    return BST([10, 8, 12, 6])
+
+
+@pytest.fixture
+def empty_tree():
+    """
+    This BST is empty and tests that methods still work at edges
+    """
+    return BST([])
 
 
 def test_for_imports():
@@ -64,11 +81,125 @@ def test_for_left_left():
     assert new_tree.root.left.left.val == 4
     assert new_tree.root.right is None
 
-# def test_in_order():
-#     """
-#     """
-#     new_tree = BST([5, 1, 7])
-#     assert new_tree.pre_order() == "1 5 7"
+
+def test_in_order():
+    """ This tests the in_ order method with a known set of numbers
+    """
+    new_tree = BST([5, 1, 7, 10])
+    report = ''
+
+    def operation(node):
+        nonlocal report
+        report += str(node.val) + " "
+    new_tree.in_order(operation)
+    assert report == "1 5 7 10 "
+
+
+def test_in_order_zero(empty_tree):
+    """ This tests to see if the method works with an empty tree
+    """
+    report = ''
+
+    def operation(node):
+        nonlocal report
+        report += str(node.val) + " "
+    empty_tree.in_order(operation)
+    assert report == ""
+
+
+def test_in_order_negatives():
+    """ This tests to see if the method works with a tree made of negtives
+    """
+    new_tree = BST([-5, -1, -7, -10])
+    report = ''
+
+    def operation(node):
+        nonlocal report
+        report += str(node.val) + " "
+    new_tree.in_order(operation)
+    assert report == "-10 -7 -5 -1 "
+
+
+def test_pre_order():
+    """ This tests the pre_ order method with a known set of numbers
+    """
+    new_tree = BST([5, 1, 7, 10])
+    report = ''
+
+    def operation(node):
+        nonlocal report
+        report += str(node.val) + " "
+
+    new_tree.pre_order(operation)
+    assert report == "5 1 7 10 "
+
+
+def test_pre_order_zero(empty_tree):
+    """ This tests the pre_ order method with an empty tree
+    """
+    new_tree = BST([])
+    report = ''
+
+    def operation(node):
+        nonlocal report
+        report += str(node.val) + " "
+
+    new_tree.pre_order(operation)
+    assert report == ""
+
+
+def test_pre_order_negatives():
+    """ This tests to see if the pre_order method works with a tree made of negatives
+    """
+    new_tree = BST([-5, -1, -7, -10])
+    report = ''
+
+    def operation(node):
+        nonlocal report
+        report += str(node.val) + " "
+    new_tree.pre_order(operation)
+    assert report == "-5 -7 -10 -1 "
+
+
+def test_post_order():
+    """ This tests the post_ order method with a known set of numbers
+    """
+    new_tree = BST([5, 1, 7, 10])
+    report = ''
+
+    def operation(node):
+        nonlocal report
+        report += str(node.val) + " "
+
+    new_tree.post_order(operation)
+    assert report == "1 10 7 5 "
+
+
+def test_post_order_zero(empty_tree):
+    """ This tests the post_ order method with an empty tree
+    """
+    new_tree = BST([])
+    report = ''
+
+    def operation(node):
+        nonlocal report
+        report += str(node.val) + " "
+
+    new_tree.post_order(operation)
+    assert report == ""
+
+
+def test_post_order_negatives():
+    """ This tests to see if the post _order method works with a tree made of negatives
+    """
+    new_tree = BST([-5, -1, -7, -10])
+    report = ''
+
+    def operation(node):
+        nonlocal report
+        report += str(node.val) + " "
+    new_tree.post_order(operation)
+    assert report == "-10 -7 -1 -5 "
 
 
 def test_maximum_value():
@@ -92,4 +223,7 @@ def test_find_maximum_val_empty_add1():
     new_tree = BST()
     new_tree.insert_node(1)
     assert new_tree.find_maximum_value() == 1
+
+
+
 
