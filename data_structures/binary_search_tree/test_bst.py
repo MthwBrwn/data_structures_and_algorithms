@@ -161,6 +161,20 @@ def test_pre_order_negatives():
     assert report == "-5 -7 -10 -1 "
 
 
+def test_post_order():
+    """ This tests the post_ order method with a known set of numbers
+    """
+    new_tree = BST([5, 1, 7, 10])
+    report = ''
+
+    def operation(node):
+        nonlocal report
+        report += str(node.val) + " "
+
+    new_tree.post_order(operation)
+    assert report == "1 10 7 5 "
+
+
 def test_maximum_value():
     """The tests the function of the find max method against known values
     """

@@ -83,18 +83,19 @@ class BST (object):
 
         _traverse(self.root)
 
-
-    def post_order(self, node):
+    def post_order(self, operation):
         """post order traverses in the fashion of Left, Right , Root
         """
-        if Node is None:
-            return
+        def _traverse(root):
+            if root is None:
+                return
 
-        self.post_order(node.left)
+            _traverse(root.left)
+            _traverse(root.right)
 
-        self.post_order(node.right)
-        # operation(node)
-        print(node.val)
+            operation(root)
+
+        _traverse(self.root)
 
 
 
