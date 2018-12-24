@@ -1,9 +1,26 @@
 from .bst import Node
 from .bst import BST
 import pytest
+import sys
 
 
-# @pytest fixture
+@pytest.fixture
+def starter_tree():
+    """
+
+           10
+        8      12
+      4
+    """
+    return BST([10, 8, 12, 6])
+
+
+@pytest.fixture
+def empty_tree():
+    """
+    This BST is empty and tests that methods still work at edges
+    """
+    return BST([])
 
 
 def test_for_imports():
@@ -64,12 +81,31 @@ def test_for_left_left():
     assert new_tree.root.left.left.val == 4
     assert new_tree.root.right is None
 
-# def test_in_order():
-#     """
-#     """
-#     new_tree = BST([5, 1, 7])
-#     assert new_tree.pre_order() == "1 5 7"
 
+def test_in_order():
+    """ This tests the in_ order method with a known set of numbers
+    """
+    new_tree = BST([5, 1, 7, 10])
+    report = ''
+
+    def operation(node):
+        nonlocal report
+        report += str(node.val) + " "
+    new_tree.in_order(operation)
+    assert report == "1 5 7 10 "
+
+
+def test_in_order_zero():
+    """
+    """
+    new_tree = BST([5, 1, 7, 10])
+    report = ''
+
+    def operation(node):
+        nonlocal report
+        report += str(node.val) + " "
+    new_tree.in_order(operation)
+    assert report == "1 5 7 10 "
 
 def test_maximum_value():
     """The tests the function of the find max method against known values
@@ -94,4 +130,5 @@ def test_find_maximum_val_empty_add1():
     assert new_tree.find_maximum_value() == 1
 
 
-def test pre_order()
+
+

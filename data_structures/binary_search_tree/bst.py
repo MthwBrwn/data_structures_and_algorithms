@@ -59,7 +59,7 @@ class BST (object):
     def pre_order(self, operation):
         """pre order traverses through the tree in a top, left, right fashion
         """
-        def _traverse(root)
+        def _traverse(root):
             if root is None:
                 return
 
@@ -80,17 +80,22 @@ class BST (object):
         # operation(node)
         print(node.val)
 
-    def in_order(self, node):
+    def in_order(self, operation):
         """in order traverses in the fashion of Left, Root, Right
         """
-        if Node is None:
-            return
+        def _traverse(root):
+        # base case
+            if root is None:
+                return
 
-        self.in_order(node.left_child)
+            _traverse(root.left)
+            operation(root)
+            _traverse(root.right)
 
-        print(node)
+        _traverse(self.root)
 
-        self.in_order(node.right_child)
+
+
 
 # This class should have the ability to insert a new node into the tree.
 # Your insertion should follow an O(log n) search solution to find the
