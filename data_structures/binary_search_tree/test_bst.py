@@ -93,3 +93,5 @@ def test_find_maximum_val_empty_add1():
     new_tree.insert_node(1)
     assert new_tree.find_maximum_value() == 1
 
+
+def test pre_order()

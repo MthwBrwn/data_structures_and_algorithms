@@ -56,16 +56,17 @@ class BST (object):
 
 # This class should be aware of depth-first traversal methods for
 # in_order, pre_order, and post_order traversals
-    def pre_order(self, node):
+    def pre_order(self, operation):
         """pre order traverses through the tree in a top, left, right fashion
         """
-        if node is None:
-            return
+        def _traverse(root)
+            if root is None:
+                return
 
-        print(node.val)
+            operation(root)
 
-        self.pre_order(node.left_child)
-        self.pre_order(node.right_child)
+            self._traverse(root.left)
+            self._traverse(root.left)
 
     def post_order(self, node):
         """post order traverses in the fashion of Left, Right , Root
@@ -73,9 +74,9 @@ class BST (object):
         if Node is None:
             return
 
-        self.post_order(node.left_child)
+        self.post_order(node.left)
 
-        self.post_order(node.right_child)
+        self.post_order(node.right)
         # operation(node)
         print(node.val)
 
