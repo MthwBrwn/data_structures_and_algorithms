@@ -95,18 +95,29 @@ def test_in_order():
     assert report == "1 5 7 10 "
 
 
-def test_in_order_zero():
+def test_in_order_zero(empty_tree):
+    """ This tests to see if the method works with an empty tree
     """
+    report = ''
+
+    def operation(node):
+        nonlocal report
+        report += str(node.val) + " "
+    empty_tree.in_order(operation)
+    assert report == ""
+
+
+def test_in_order_negatives():
+    """ This tests to see if the method works with a tree made of negtives
     """
-    new_tree = BST([5, 1, 7, 10])
+    new_tree = BST([-5, -1, -7, -10])
     report = ''
 
     def operation(node):
         nonlocal report
         report += str(node.val) + " "
     new_tree.in_order(operation)
-    assert report == "1 5 7 10 "
-
+    assert report == "-10 -7 -5 -1 "
 def test_maximum_value():
     """The tests the function of the find max method against known values
     """
