@@ -255,3 +255,18 @@ def test_fizz_buzz_negative():
     assert new_tree.root.left.val == -7
     assert new_tree.root.right.val == "fizz"
     assert new_tree.root.left.left.val == "fizzbuzz"
+
+
+def test_queue_method():
+    """this tests our breath search method with known figures
+    expects 10, 5, 15, 3
+    """
+    tree = BST([10, 5, 3, 15])
+    report = ''
+
+    def operation(node):
+        nonlocal report
+        report += str(node.val) + " "
+
+    tree.breadth_search(operation)
+    assert report == '10, 5, 15, 3 '
