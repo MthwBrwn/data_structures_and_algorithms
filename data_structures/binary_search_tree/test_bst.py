@@ -270,3 +270,33 @@ def test_queue_method():
 
     tree.breadth_search(operation)
     assert report == '10 5 15 3 '
+
+
+def test_queue_method_negatives():
+    """this tests our breath search method with known negative figures
+    expects -10, -15, -5, -3
+    """
+    tree = BST([-10, -5, -3, -15])
+    report = ''
+
+    def operation(node):
+        nonlocal report
+        report += str(node.val) + " "
+
+    tree.breadth_search(operation)
+    assert report == '-10 -15 -5 -3 '
+
+
+def test_queue_method_empty(empty_tree):
+    """this tests our breath search method with empty to check edges
+    """
+
+    new_tree = BST([])
+    report = ''
+
+    def operation(node):
+        nonlocal report
+        report += str(node.val) + " "
+
+    new_tree.breadth_search(operation)
+    assert report == ""
