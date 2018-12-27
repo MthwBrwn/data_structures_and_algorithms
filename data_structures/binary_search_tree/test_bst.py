@@ -1,4 +1,4 @@
-from .bst import Node, BST, fizz_buzz
+from .bst import Node, QNode, BST, fizz_buzz
 import pytest
 import sys
 
@@ -255,3 +255,48 @@ def test_fizz_buzz_negative():
     assert new_tree.root.left.val == -7
     assert new_tree.root.right.val == "fizz"
     assert new_tree.root.left.left.val == "fizzbuzz"
+
+
+def test_queue_method():
+    """this tests our breath search method with known figures
+    expects 10, 5, 15, 3
+    """
+    tree = BST([10, 5, 3, 15])
+    report = ''
+
+    def operation(node):
+        nonlocal report
+        report += str(node.val) + " "
+
+    tree.breadth_search(operation)
+    assert report == '10 5 15 3 '
+
+
+def test_queue_method_negatives():
+    """this tests our breath search method with known negative figures
+    expects -10, -15, -5, -3
+    """
+    tree = BST([-10, -5, -3, -15])
+    report = ''
+
+    def operation(node):
+        nonlocal report
+        report += str(node.val) + " "
+
+    tree.breadth_search(operation)
+    assert report == '-10 -15 -5 -3 '
+
+
+def test_queue_method_empty(empty_tree):
+    """this tests our breath search method with empty to check edges
+    """
+
+    new_tree = BST([])
+    report = ''
+
+    def operation(node):
+        nonlocal report
+        report += str(node.val) + " "
+
+    new_tree.breadth_search(operation)
+    assert report == ""

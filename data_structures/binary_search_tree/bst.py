@@ -1,3 +1,4 @@
+
 # Create a Class for a Node which is aware of the value as val and left and
 #  right children as left and right respectively
 
@@ -146,6 +147,25 @@ class BST (object):
         _find_maximum_value(self.root)
         return maxVal
 
+    def breadth_search(self, operation):
+        """ breadth first will take a BST nd return back the nodes as they appear level by level in the tree
+
+        """
+        if self.root is None:
+                return
+        queue = Queue()
+
+        queue.enqueue(self.root)
+
+        while len(queue) > 0:
+            current = queue.dequeue()
+            if current.left:
+                queue.enqueue(current.left)
+            if current.right:
+                queue.enqueue(current.right)
+
+            operation(current)
+
 
 def fizz_buzz(tree):
     """ Fiz buzz takes a tree as argument, and returns a tree where
@@ -172,4 +192,61 @@ def fizz_buzz(tree):
 
     tree.in_order(fizz_buzz_operation)
     return tree
+
+
+class QNode(object):
+    """short class to allow queue to reference the next node without changing the node from BST
+    """
+    def __init__(self, val, next=None):
+        self.val = val
+        self._next = next
+        if val is None:
+            raise TypeError('node needs a value')
+
+
+class Queue(object):
+    """Queue is a data structure in which node are arranges first in first out
+    """
+    def __init__(self, iterable=None):
+        self.front = None
+        self.back = None
+        self.queue_size = 0
+
+        if iterable is None:
+            iterable = []
+
+        if type(iterable) is not list:
+            raise TypeError('iterable must be of type list')
+
+        for val in iterable:
+            self.enqueue(val)
+
+    def __len__(self):
+        return self.queue_size
+
+    def enqueue(self, val):
+        """  This method takes the value and adds it to the rear of the queue object
+        For the queue when he first node is added the first node will be front and back
+        After the first the new nodes add to the back and point to the next node
+        size is incremented by 1
+        """
+        node = QNode(val)
+        self.queue_size += 1
+        if self.front is None:
+            self.back = node
+            self.front = node
+        else:
+            self.back._next = node
+            self.back = self.back._next
+
+    def dequeue(self):
+        """This method does not take and argument. When called the front of the queue is removed and returned.
+        """
+        if self.queue_size == 0:
+            raise KeyError('queue is empty!')
+        dq_node = self.front
+        self.front = self.front._next
+        self.queue_size -= 1
+
+        return dq_node.val
 
