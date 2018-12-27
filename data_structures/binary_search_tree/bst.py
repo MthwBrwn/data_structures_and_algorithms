@@ -157,7 +157,7 @@ class BST (object):
 
         queue.enqueue(self.root)
 
-        while __len__(queue) > 0:
+        while len(queue) > 0:
             current = queue.dequeue()
             if current.left:
                 queue.enqueue(current.left)
@@ -194,6 +194,16 @@ def fizz_buzz(tree):
     return tree
 
 
+class QNode(object):
+    """short class to allow queue to reference the next node without changing the node from BST
+    """
+    def __init__(self, val, next=None):
+        self.val = val
+        self._next = next
+        if val is None:
+            raise TypeError('node needs a value')
+
+
 class Queue(object):
     """Queue is a data structure in which node are arranges first in first out
     """
@@ -212,7 +222,7 @@ class Queue(object):
             self.enqueue(val)
 
     def __len__(self):
-        return self._size
+        return self.queue_size
 
     def enqueue(self, val):
         """  This method takes the value and adds it to the rear of the queue object
@@ -220,14 +230,14 @@ class Queue(object):
         After the first the new nodes add to the back and point to the next node
         size is incremented by 1
         """
-        node = Node(val)
+        node = QNode(val)
         self.queue_size += 1
-        if self.front is None and self.back is None:
+        if self.front is None:
             self.back = node
             self.front = node
         else:
             self.back._next = node
-            self.back = node
+            self.back = self.back._next
 
     def dequeue(self):
         """This method does not take and argument. When called the front of the queue is removed and returned.
@@ -235,7 +245,7 @@ class Queue(object):
         if self.queue_size == 0:
             raise KeyError('queue is empty!')
         dq_node = self.front
-        self.front = self.front_next
+        self.front = self.front._next
         self.queue_size -= 1
 
         return dq_node.val

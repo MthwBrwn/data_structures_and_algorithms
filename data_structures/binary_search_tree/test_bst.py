@@ -1,4 +1,4 @@
-from .bst import Node, BST, fizz_buzz
+from .bst import Node, QNode, BST, fizz_buzz
 import pytest
 import sys
 
@@ -269,4 +269,4 @@ def test_queue_method():
         report += str(node.val) + " "
 
     tree.breadth_search(operation)
-    assert report == '10, 5, 15, 3 '
+    assert report == '10 5 15 3 '
