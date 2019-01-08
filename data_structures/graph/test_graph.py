@@ -1,27 +1,31 @@
+import pytest
 from .graph import Graph
-from .conftest import graph_empty
+# from .conftest import
 
 
 def test_graph_import():
-    """
+    """ initial test to see if graph was properly imported
     """
     assert Graph
 
 
-def test_empty_graph():
+def test_empty_graph(graph_empty):
+    """ this test check to see if empty graph contains a value.
     """
+    assert graph_empty.has_vert('foo') is False
+
+
+def test_has_vert_filled(graph_one):
+    """ create a test to check for vertex with known fixture
     """
-    testgraph = Graph()
-    assert testgraph.has_vert('foo') is False
+
+    assert graph_one.has_vert("C") is True
 
 
-#create a test to check for added vertex
-# def test_adds_a_node():
-#     """
-#     """
-#     startgraph = Graph()
-#     assert startgraph.add_vert("3") == ["3"]
-
+def test_has_vert_filled_wrong(graph_one):
+    """ create a test to check for lack of vertex with known fixture
+    """
+    assert graph_one.has_vert("X") is False
 
 #create a test to determine is has Vert
 
