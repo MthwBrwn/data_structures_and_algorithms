@@ -4,14 +4,13 @@ class Graph(object):
     """
     def __init__(self):
         self.graph = {}
-        # self._size = 0
 
-    # def __repr__(self):
-    #     output = f'<Graph: size - { self.size }>'
-    #     return output
+    def __repr__(self):
+        output = f'<Graph: size - {len(self.graph)}>'
+        return output
 
-    # def __str__(self):
-    #     self.size
+    def __str__(self):
+        pass
 
     def __len__(self):
         return len(self.graph)
@@ -29,17 +28,20 @@ class Graph(object):
             raise Exception('This value has been used already.')
 
         self.graph[val] = {}
-        # self._size += 1
 
     def add_edge(self, v1, v2, weight):
+        """This sets up an edge between two vertices as well as a weight
         """
-        """
-        # add a relationship and weight between two verts
-        # don't forget to validate
-        pass
+        if v1 in self.graph:
+                self.graph[v1].append([v2, weight])
+        else:
+            raise Exception('vertex not found')
 
     def get_neighbors(self, val):
         """
         """
         # Given a val (key), return all adjacent verts
         pass
+
+
+

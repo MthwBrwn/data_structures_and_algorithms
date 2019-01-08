@@ -50,6 +50,14 @@ def test_add_vert_causes_error(graph_one):
         graph_one.add_vert('C')
 
 
+def test_add_vert_twice_to_zer0_causes_error(graph_empty):
+    """ Test to see if error handling is working with dup vertices
+    """
+    graph_empty.add_vert('x')
+    with pytest.raises(Exception):
+        graph_empty.add_vert('x')
+
+
 def test_empty_graph_size(graph_empty):
     """ this test check to see if empty graph contains a length of zero.
     """
@@ -67,6 +75,15 @@ def test_length_of_short_graph(graph_one):
     """ this test check known graph length .
     """
     assert len(graph_one) == 6
+
+
+def test_length_of_short_graph_plus_one(graph_one):
+    """ this test check known graph length .
+    """
+    graph_one.add_vert('foo')
+    assert len(graph_one) == 7
+
+
 #create a test to determine is has Vert
 
 
