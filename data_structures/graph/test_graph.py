@@ -8,10 +8,11 @@ def test_graph_import():
     assert Graph
 
 
-def test_empty_graph(graph_empty):
+def test_empty_graph():
     """
     """
-    assert graph_empty.has_vert is False
+    testgraph = Graph()
+    assert testgraph.has_vert('foo') is False
 
 
 #create a test to check for added vertex
