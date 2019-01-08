@@ -25,14 +25,10 @@ class Graph(object):
     def add_vert(self, val):
         """ this method takes in a value and adds a node to the graph.
         """
-        # add vertice to self.graph
-        # check to see if the vert already exists: if so raise exception
-        # create a helper method
-        if self.graph.has_vert(val) is True:
-            raise Exception('This value has been used already.')
-
-        else:
-            self.graph[val] = {}
+        # if self.graph.has_vert(val) is True:
+        #     raise Exception('This value has been used already.')
+        # else:
+        self.graph[val] = {}
 
     def add_edge(self, v1, v2, weight):
         """

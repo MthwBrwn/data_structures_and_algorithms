@@ -27,6 +27,15 @@ def test_has_vert_filled_wrong(graph_one):
     """
     assert graph_one.has_vert("X") is False
 
+
+def test_add_vert_to_small_graph(graph_one):
+    """ create a test to add to graph and check if vert exists in graph
+    """
+    assert graph_one.has_vert("X") is False
+    graph_one.add_vert('X')
+    assert graph_one.has_vert("X") is True
+
+
 #create a test to determine is has Vert
 
 
