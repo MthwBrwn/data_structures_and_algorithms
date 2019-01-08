@@ -36,6 +36,20 @@ def test_add_vert_to_small_graph(graph_one):
     assert graph_one.has_vert("X") is True
 
 
+def test_add_to_empty_graph(graph_empty):
+    """ this test check to see if adding to empty graph works and can confirm vertex.
+    """
+    graph_empty.add_vert('foo')
+    assert graph_empty.has_vert('foo') is True
+
+
+def test_add_vert_causes_error(graph_one):
+    """ Test to see if error handling is working with dup vertices
+    """
+    with pytest.raises(Exception):
+        graph_one.add_vert('C')
+
+
 #create a test to determine is has Vert
 
 
