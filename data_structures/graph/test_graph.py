@@ -50,6 +50,23 @@ def test_add_vert_causes_error(graph_one):
         graph_one.add_vert('C')
 
 
+def test_empty_graph_size(graph_empty):
+    """ this test check to see if empty graph contains a length of zero.
+    """
+    assert len(graph_empty) == 0
+
+
+def test_empty_graph_size_plus_one(graph_empty):
+    """ this test check to see if empty graph length will increase when added.
+    """
+    graph_empty.add_vert('foo')
+    assert len(graph_empty) == 1
+
+
+def test_length_of_short_graph(graph_one):
+    """ this test check known graph length .
+    """
+    assert len(graph_one) == 6
 #create a test to determine is has Vert
 
 
