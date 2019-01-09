@@ -82,14 +82,3 @@ def test_length_of_short_graph_plus_one(graph_one):
     """
     graph_one.add_vert('foo')
     assert len(graph_one) == 7
-
-
-#create a test to determine is has Vert
-
-
-#create a test to see if add vert to Dict which already has vert
-# raises exception
-#
-#
-# Create a test to show a new formed graph has no edges
-

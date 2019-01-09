@@ -42,6 +42,3 @@ class Graph(object):
         """
         # Given a val (key), return all adjacent verts
         pass
-
-
-
