@@ -3,12 +3,14 @@ class Hashtable(object):
     """
 
     def __init__(self):
-        self.size 64
-        self.bucket = None * self.size
+        self.size = 64
+        self.bucket = [None] * self.size
+
     def __repr__(self):
+        return f' bucket : {self.bucket}'
 
     def __str__(self):
-
+        return f' bucket : {self.bucket}'
 
 
 # A hash table should support at least the following methods:
@@ -20,7 +22,7 @@ def sum_hash(self, key):
     hash = 0
     for char in key:
         hash += ord(char)
-    hash %= 5
+    return hash % self.size
 
 
 # .put(key, value) - store a value with the given key
@@ -56,7 +58,8 @@ def get(self, key):
 
 # .remove(key) - delete a value associated with a key
 def remove(self, key):
-    """
+    """ This method searches for the key given and if key is located in bucket
+    will pop contents from bucket.
     """
     hash = self.sum_hash(key)
     if self.bucket[hash]is None:
@@ -69,6 +72,8 @@ def remove(self, key):
 
 # .keys() - return a collection of all the keys
 def keys(self):
+    """ This is a simple print method for every item in bucket.
+    """
     for item in self.bucket:
         if item is not None:
-            print item
+            print(item)
