@@ -17,3 +17,5 @@ This application is written in Python3.6
 ## Change Log
 
 13 Jan 19 - begin work on hash maps
+reviewed https://www.youtube.com/watch?v=9HFbhPscPU0
+to work out solution
