@@ -1,0 +1,5 @@
+
+[report]
+
+include =
+    hash_table.py
