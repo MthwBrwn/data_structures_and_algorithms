@@ -6,8 +6,11 @@ def test_existence():
     """
     assert find_first_repeat
 
-def test_component_of_repeat():
+
+def test_component_of_repeat_get_word():
+    """this tests to see if the split is working as needed
     """
-    """
-    test = find_first_repeat('try this one')
-    assert test == ('try', 'this', 'one')
+    test = get_words_from_string('try this. it is one of one')
+    assert test == ['try', 'this.', 'it', 'is', 'one', 'of', 'one']
+
+def test_
