@@ -8,11 +8,11 @@ def tree_intersection(tree1, tree2):
     list_2 = []
 
     # setting up helper for traversal operation
-    def _add_to_list_1():
+    def _add_to_list_1(node):
         list_1.put(node.val, 1)
         return
 
-    def _add_to_list_2():
+    def _add_to_list_2(node):
         if list_1.get(node.val):
             list_2.append(node.val)
             return
