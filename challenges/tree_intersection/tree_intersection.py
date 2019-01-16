@@ -9,11 +9,11 @@ def tree_intersection(tree1, tree2):
 
     # setting up helper for traversal operation
     def _add_to_list_1(node):
-        list_1.put(node.val, 1)
+        list_1.put(str(node.val), 1)
         return
 
     def _add_to_list_2(node):
-        if list_1.get(node.val):
+        if list_1.get(str(node.val)):
             list_2.append(node.val)
             return
 # traverse tree #1, hashing each node value and placing into a list_1 (hash table)
