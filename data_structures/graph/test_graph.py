@@ -84,6 +84,15 @@ def test_length_of_short_graph_plus_one(graph_one):
     assert len(graph_one) == 7
 
 
+def test_to_check_if_edge_is_created(graph_empty):
+    """
+    """
+    graph_empty.add_vert('apples')
+    graph_empty.add_vert('oranges')
+    assert graph_empty.has_vert('oranges') is True
+    graph_empty.add_edge('apples', 'oranges', 5)
+    assert graph_empty['apples'] == ["oranges", 5]
+
 #create a test to determine is has Vert
 
 

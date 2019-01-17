@@ -32,8 +32,11 @@ class Graph(object):
     def add_edge(self, v1, v2, weight):
         """This sets up an edge between two vertices as well as a weight
         """
-        if v1 in self.graph:
-                self.graph[v1].append([v2, weight])
+        if v1 in self.graph and v2 in self.graph:
+            self.graph[v1][v2] = weight
+            self.graph[v2][v1] = weight
+            # self.graph[v1].update({v2: weight})
+            # return self.graph[v1]
         else:
             raise Exception('vertex not found')
 

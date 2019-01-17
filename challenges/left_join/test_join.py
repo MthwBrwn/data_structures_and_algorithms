@@ -57,6 +57,6 @@ def test_wrong_type_given():
     hashmapA = ['red', 1, 'orange', 2, 'yellow', 3]
     hashmapB = {'red': 4, 'orange': 5, 'yellow': 6}
     with pytest.raises(TypeError):
-        testAB = left_join(hashmapA, hashmapB)
+        left_join(hashmapA, hashmapB)
 
 

@@ -29,7 +29,3 @@ def test_put_method():
     testtable.put('tester', 'testerval')
     assert testtable.get('tester') == 'testerval'
 
-def test_put_method_duplicate():
-    testtable = Hashtable()
-    testtable.put('tester', 'testerval')
-    assert testtable.get('tester') == 'testerval'
