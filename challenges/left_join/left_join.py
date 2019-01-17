@@ -10,15 +10,12 @@ def left_join(hashmapA, hashmapB):
     for item in hashmapA:
         list_join.append(item)
         list_join.append(hashmapA.get(item))
-        list_join.append(hashmapB.get(item))
-# [hashmapA[item]]
-# for length of list join get hashmapB[listjoin[i]] and append to list_join
-# if no value append "null"
-    # for i in range(len(list_join)):
-    #     if hashmapB[list_join[i]][1]:
-    #         list_join[i].append(hashmapB[list_join[i]][1])
-    #     else:
-    #         list_join[i] = 'null'
+        if hashmapB.get(item):
+            list_join.append(hashmapB.get(item))
+        else:
+            list_join.append('null')
+
+
 #
 # return list_join
     return list_join
