@@ -65,7 +65,6 @@ class Hashtable:
                 self.bucket[hash].pop(i)
                 return True
 
-
     # .keys() - return a collection of all the keys
     def keys(self):
         """ This is a simple print method for every item in bucket.
