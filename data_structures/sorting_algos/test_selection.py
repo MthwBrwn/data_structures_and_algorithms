@@ -36,4 +36,9 @@ def test_selection_sort_text():
     assert testsort == ['C', 'c', 'e', 'h', 'k']
 
 
+def test_to_see_if_type_is_enforced_string():
+    """ this test makes sure that errors are raised when 1) wrong type is used and 2) lists do not trigger typeError
+    """
+    with pytest.raises(TypeError):
+        selection_sort('test')
 
