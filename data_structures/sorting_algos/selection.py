@@ -4,13 +4,17 @@ def selection_sort(_array):
     b as the next in the array. For each i, the remaining figures are iterated over
     if a > b then
     """
-    for i in range(len(_array)):
-        smaller_index = i
-        for j in range(i+1, len(_array)):
-            if _array[smaller_index] > _array[j]:
-                smaller_index = j
-#  this does a swap
-        _array[i], _array[smaller_index] = _array[smaller_index], _array[i]
+    if _array is not type(list):
+        raise TypeError
 
-    return _array
+    else:
+        for i in range(len(_array)):
+            smaller_index = i
+            for j in range(i+1, len(_array)):
+                if _array[smaller_index] > _array[j]:
+                    smaller_index = j
+    #  this does a swap
+            _array[i], _array[smaller_index] = _array[smaller_index], _array[i]
+
+        return _array
 #
