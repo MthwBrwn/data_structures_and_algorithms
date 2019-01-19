@@ -14,6 +14,17 @@ def test_selection_sort():
     testsort = selection_sort([42, 14, 1, 36])
     assert testsort == [1, 14, 36, 42]
 
+# def test_to_see_if_type_is_enforced_string():
+#     pass
+#     """ this test makes sure that errors are raised when 1) wrong type is used and 2) lists do not trigger typeError
+#     """
+#     with pytest.raises(TypeError):def test_to_see_if_type_is_enforced_string():
+#     """ this test makes sure that errors are raised when 1) wrong type is used and 2) lists do not trigger typeError
+#     """
+#     with pytest.raises(TypeError):
+#         selection_sort('test')
+#         selection_sort('test')
+
 
 def test_selection_sort_negatives():
     """
@@ -37,8 +48,16 @@ def test_selection_sort_text():
 
 
 def test_to_see_if_type_is_enforced_string():
+    """ this test makes sure that errors are raised when 1) wrong type is used
+    """
+    with pytest.raises(TypeError):
+        selection_sort(" ")
+
+
+def test_to_see_if_type_is_enforced_int():
     """ this test makes sure that errors are raised when 1) wrong type is used and 2) lists do not trigger typeError
     """
     with pytest.raises(TypeError):
-        selection_sort('test')
+        selection_sort(1234)
+
 
