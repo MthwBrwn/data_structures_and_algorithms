@@ -9,8 +9,8 @@ Extend your graph object with a breadth-first traversal method that accepts a st
 
 ## Approach & Efficiency
 
-Because this traverses the entire length of the graph the O time is going to be On -
-This method will require some additional data as well to keep track of if a vertex has been visited also
+Because this traverses the entire length of the graph the O time is going to be O(n) -
+
 
 ## Solution
 

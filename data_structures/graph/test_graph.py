@@ -91,14 +91,22 @@ def test_to_check_if_edge_is_created(graph_empty):
     graph_empty.add_vert('oranges')
     assert graph_empty.has_vert('oranges') is True
     graph_empty.add_edge('apples', 'oranges', 5)
-    assert graph_empty['apples'] == ["oranges", 5]
-
-#create a test to determine is has Vert
 
 
-#create a test to see if add vert to Dict which already has vert
-# raises exception
-#
-#
-# Create a test to show a new formed graph has no edges
+# added test for neighbors
+
+
+def test_to_check_for_neighbors(graph_one):
+    """
+    """
+    assert graph_one.get_neighbors('A') == ('B',)
+    assert graph_one.get_neighbors('B') == ('A', 'D', 'C')
+    assert graph_one.get_neighbors('E') == ('F', 'B')
+
+
+def test_for_empty_graph(graph_empty):
+    """
+    """
+    with pytest.raises Exception()
+
 

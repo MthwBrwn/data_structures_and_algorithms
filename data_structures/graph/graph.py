@@ -35,16 +35,16 @@ class Graph(object):
         if v1 in self.graph and v2 in self.graph:
             self.graph[v1][v2] = weight
             self.graph[v2][v1] = weight
-            # self.graph[v1].update({v2: weight})
-            # return self.graph[v1]
+
+            return self
         else:
             raise Exception('vertex not found')
 
     def get_neighbors(self, val):
+        """ This method returns back any vertex that is adjacent to the argument
         """
-        """
-        # Given a val (key), return all adjacent verts
-        pass
+        if val in self.graph:
+            return tuple(self.graph[val])
 
-
+        raise Exception('vertex not found. Please input valid vertex.')
 
