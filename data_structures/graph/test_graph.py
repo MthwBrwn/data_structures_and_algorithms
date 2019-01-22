@@ -107,6 +107,6 @@ def test_to_check_for_neighbors(graph_one):
 def test_for_empty_graph(graph_empty):
     """
     """
-    assert graph_empty.get_neighbors('A') is None
+    with pytest.raises Exception()
 
 

@@ -46,5 +46,5 @@ class Graph(object):
         if val in self.graph:
             return tuple(self.graph[val])
 
-
+        raise Exception('vertex not found. Please input valid vertex.')
 
