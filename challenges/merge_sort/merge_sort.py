@@ -3,7 +3,8 @@ def mergesort(_list):
     """ merge sort works by recursively spliting a list down to a
     binary comparison and then sorting smaller values to the left
     """
-
+    if not isinstance(_list, list):
+        raise TypeError
 # Need a recursive function that splits a list
 # in half until a list of length n has n lists of 1 unit
     if len(_list) > 1:
@@ -17,28 +18,28 @@ def mergesort(_list):
 # once down to the last split, the left list is compared to the right list and the lower value is appended to newList.
 # this runs recursively until the list is fully rebuilt
 # we need to keep track of three counters
-    i = 0  # index of left side
-    j = 0  # index of right side
-    k = 0  # index of _list
+        i = 0  # index of left side
+        j = 0  # index of right side
+        k = 0  # index of _list
 
-    while i < len(left_half) and j < len(right_half):
-            if left_half[i] < right_half[j]:
-                _list[k] = left_half[i]
-                i += i
-            else:
-                _list[k] = right_half[j]
-                j += j
-            k += k
+        while i < len(left_half) and j < len(right_half):
+                if left_half[i] < right_half[j]:
+                    _list[k] = left_half[i]
+                    i += 1
+                else:
+                    _list[k] = right_half[j]
+                    j += 1
+                k += 1
 
 # when left or right is no longer present the following continue the sort
-    while i < len(left_half):
-            _list[k] = left_half[i]
-            i += i
-            k += k
+        while i < len(left_half):
+                _list[k] = left_half[i]
+                i += 1
+                k += 1
 
-    while i < len(right_half):
-            _list[k] = right_half[j]
-            j += j
-            k += k
+        while j < len(right_half):
+                _list[k] = right_half[j]
+                j += 1
+                k += 1
 
     return _list
