@@ -13,4 +13,4 @@ Time is O(n log n ) and Space complexity is O (1) as the list is modified in pla
 
 ## Solution
 
-![](../../assets/.jpg)
+![](../../assets/quickSort.jpg)
