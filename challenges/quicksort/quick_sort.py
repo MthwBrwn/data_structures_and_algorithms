@@ -1,4 +1,7 @@
 def quickSort(_list):
+    if not isinstance(_list, list):
+        raise TypeError
+
     quickSortRunner(_list, 0, len(_list)-1)
 
     return _list

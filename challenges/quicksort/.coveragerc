@@ -1,0 +1,4 @@
+[report]
+
+include =
+    quick_sort.py
